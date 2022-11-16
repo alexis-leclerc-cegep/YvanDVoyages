@@ -9,6 +9,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Province;
 use App\Models\Client;
 
 class ClientController extends Controller
@@ -18,8 +19,9 @@ class ClientController extends Controller
 // ************************************************************************
     //Fonction de connexion du client au site
     public function creerCompte(Request $request) {
+        $toutLesProvinces = Province::all();
 
-        return view('client/inscrire');
+        return view('client/inscrire')->with('toutLesProvinces', $toutLesProvinces);
     }
 
     //Fonction d'inscription du client au site et d'ajout d'un client de l'administration
