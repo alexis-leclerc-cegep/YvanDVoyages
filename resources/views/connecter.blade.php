@@ -6,7 +6,7 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 m-auto">
-        <form method="post" action="/connecter">
+        <form method="post" action="/authentifier">
             @csrf
                 <div class="card shadow" style="margin-bottom: 15px">
                     <div class="car-header bg-success pt-2">
@@ -28,6 +28,9 @@
                             <label for="courriel"> Entrez votre courriel </label>
                             <input type="text" name="courriel" id="email" class="form-control" placeholder="" value="{{ old('courriel') }}"/>
                             {!! $errors->first('courriel', '<small class="text-danger">:message</small>') !!}
+                            <label for="motDePasse"> Entrez votre mot de passe </label>
+                            <input type="password" name="motDePasse" id="motDePasse" class="form-control" placeholder="" value="{{ old('motDePasse') }}"/>
+                            {!! $errors->first('motDePasse', '<small class="text-danger">:message</small>') !!}
                         </div>
                     </div>
 

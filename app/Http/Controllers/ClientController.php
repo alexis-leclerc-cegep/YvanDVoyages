@@ -55,6 +55,8 @@ class ClientController extends Controller
        $nouveauClient->province_id = $request->input('province');
        $nouveauClient->premierContact_id = $request->input('premierContact');
        $nouveauClient->save();
+
+       return redirect()->route('connecter');
    }
 
 
@@ -66,7 +68,7 @@ class ClientController extends Controller
     public function adminLister (Request $request){
         if($request->session()->get('admin')==1){
             
-            return view('client/adminLister')->with('tousLesClients', $tousLesClients);
+            return view('admin/client/lister')->with('tousLesClients', $tousLesClients);
         }
         else{
             return redirect()->route('voyage.afficher')->with('message', 'Accès refusé.');

@@ -10,8 +10,9 @@ use App\Http\Controllers\VoyageController;
 use App\Http\Controllers\ClientController;
 
 // Routes d'authentification
-Route::get('/connecter',        [Controller::class, 'connecter'])->name('connecter');
+Route::post('/connecter',       [Controller::class, 'connecter'])->name('connecter');
 Route::post('/deconnecter',     [Controller::class, 'deconnecter'])->name('deconnecter');
+Route::post('/authentifier',    [Controller::class, 'authentifier'])->name('authentifier');
 
 // ROUTES Application e-commerce
 // ... pour la gestion des voyages
@@ -25,7 +26,6 @@ Route::get('/client/creerCompte',           [ClientController::class, 'creerComp
 Route::post('/client/inscrire',             [ClientController::class, 'inscrire'])->name('client.inscrire');
 Route::post('/client/modifier/{id}',        [ClientController::class, 'modifier'])->name('client.modifier');
 Route::get('/client/desinscrire/{id}',      [ClientController::class, 'desinscrire'])->name('client.desinscrire');
-
 
 
 // ROUTES Application administrateur
