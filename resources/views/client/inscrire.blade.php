@@ -75,7 +75,7 @@
 
 
         <!-- Afficher les premiers contacts de la table premiercontact -->
-                            <select name="premierContact">
+                            <select name="premierContact" id="premierContact" class="form-control" placeholder="" value="{{ old('premierContact')}}">
                                 @foreach($toutLesPremiersContacts as $premierContact)
                                     <option value="{{ $premierContact->id }}">{{ $premierContact->premierContact }}</option>
                                 @endforeach

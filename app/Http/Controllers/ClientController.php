@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Province;
 use App\Models\Client;
+use App\Models\PremierContact;
 
 class ClientController extends Controller
 {
@@ -20,8 +21,10 @@ class ClientController extends Controller
     //Fonction de connexion du client au site
     public function creerCompte(Request $request) {
         $toutLesProvinces = Province::all();
+        $toutLesPremiersContacts = PremierContact::all();
 
-        return view('client/inscrire')->with('toutLesProvinces', $toutLesProvinces);
+        return view('client/inscrire')->with('toutLesProvinces', $toutLesProvinces)
+                                      ->with('toutLesPremiersContacts', $toutLesPremiersContacts);
     }
 
     //Fonction d'inscription du client au site et d'ajout d'un client de l'administration
