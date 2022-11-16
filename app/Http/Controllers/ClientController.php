@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Province;
 use App\Models\Client;
 use App\Models\PremierContact;
+use Illuminate\Support\Facades\Hash;
 
 class ClientController extends Controller
 {
@@ -34,6 +35,7 @@ class ClientController extends Controller
            'courriel' => ['required', 'string', 'min:5', 'max:35' ],    
            'prenom' => ['required', 'string',  'min:3', 'max:10'],
            'nom' => ['required', 'string',  'min:3', 'max:10'],      
+           'motDePasse' => ['required', 'string',  'min:5', 'max:35'],
            'adresse' => ['required', 'string',  'min:5', 'max:28'],      
            'ville' => ['required', 'string',  'min:2', 'max:19'], 
            'codePostal' => ['required', 'string',  'min:7', 'max:7'], 
@@ -47,6 +49,7 @@ class ClientController extends Controller
        $nouveauClient->courriel = $request->input('courriel');
        $nouveauClient->prenom = $request->input('prenom');
        $nouveauClient->nom = $request->input('nom');
+       $nouveauClient->motDePasse = Hash::make($request->input('motDePasse'));
        $nouveauClient->adresse = $request->input('adresse');
        $nouveauClient->ville = $request->input('ville');
        $nouveauClient->CP = $request->input('codePostal');

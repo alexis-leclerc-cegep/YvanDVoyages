@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     protected $table = 'client';
-    protected $fillable = ['prenom','nom', 'adresse', 'ville', 'CP', 'telephone', 'courriel', 'genre', 'province_id', 'premierContact_id']; //Champs modifiables
+    protected $fillable = ['prenom','nom', 'motDePasse', 'adresse', 'ville', 'CP', 'telephone', 'courriel', 'genre', 'province_id', 'premierContact_id']; //Champs modifiables
     public $timestamps = false;  //Utilisation de created_at et updated_at
     use HasFactory;
 
