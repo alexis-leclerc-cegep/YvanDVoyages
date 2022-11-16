@@ -16,6 +16,7 @@ class Controller extends BaseController
         return view('connecter'); 
     }
 
+    /*
     public function authentifier(Request $request){
         $request->validate([
             'courriel' => ['required', 'string', 'min:5', 'max:35' ],    
@@ -31,6 +32,7 @@ class Controller extends BaseController
             return redirect()->route('connecter');
         }
     }
+    */
     public function apropos(){
 
     }

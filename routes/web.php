@@ -10,7 +10,7 @@ use App\Http\Controllers\VoyageController;
 use App\Http\Controllers\ClientController;
 
 // Routes d'authentification
-Route::post('/connecter',       [Controller::class, 'connecter'])->name('connecter');
+Route::get('/connecter',       [Controller::class, 'connecter'])->name('connecter');
 Route::post('/deconnecter',     [Controller::class, 'deconnecter'])->name('deconnecter');
 Route::post('/authentifier',    [Controller::class, 'authentifier'])->name('authentifier');
 

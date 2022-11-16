@@ -28,6 +28,9 @@
                             <label for="courriel"> Entrez votre courriel </label>
                             {!! $errors->first('courriel', '<small class="text-danger">:message</small>') !!}
                             <input type="text" name="courriel" id="email" class="form-control" placeholder="" value="{{ old('courriel') }}"/>
+                            <label for="motDePasse"> Entrez votre mot de passe </label>
+                            {!! $errors->first('motDePasse', '<small class="text-danger">:message</small>') !!}
+                            <input type="password" name="motDePasse" id="motDePasse" class="form-control" placeholder="" value="{{ old('motDePasse') }}"/>
                             <label for="prenom"> Entrez votre prénom </label>
                             {!! $errors->first('prenom', '<small class="text-danger">:message</small>') !!}
                             <input type="text" name="prenom" id="prenom" class="form-control" placeholder="" value="{{ old('prenom') }}"/>
