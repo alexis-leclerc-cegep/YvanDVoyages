@@ -54,13 +54,20 @@
                                 <option>A</option>
                             </select>
                             <label for="province"> Choisir votre province </label>
+
                             {!! $errors->first('province', '<small class="text-danger">:message</small>') !!}
 
 
 
         <!-- Afficher les provinces de la table province -->
+                            <select name="province" id="province" class="form-control" placeholder="" value="{{ old('province') }}">
+                                @foreach($toutLesProvinces as $province)
+                                    <option value="{{ $province->id }}">{{ $province->province }}</option>
+                                @endforeach
+                            </select>
 
 
+        <!-- Fin -->
 
                             <label for="premierContact"> De qu'elle façon nous avez vous découvert? </label>
                             {!! $errors->first('premierContact', '<small class="text-danger">:message</small>') !!}
@@ -68,6 +75,11 @@
 
 
         <!-- Afficher les premiers contacts de la table premiercontact -->
+                            <select name="premierContact">
+                                @foreach($toutLesPremiersContacts as $premierContact)
+                                    <option value="{{ $premierContact->id }}">{{ $premierContact->premierContact }}</option>
+                                @endforeach
+                            </select>
 
 
         
