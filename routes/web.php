@@ -41,4 +41,3 @@ Route::get('/admin/voyage/lister',          [VoyageController::class, 'adminList
 Route::get('/admin/voyage/ajouter',         [VoyageController::class, 'adminAjouter'])->name('admin.voyage.ajouter');
 Route::post('/admin/voyage/modifier/{id}',  [VoyageController::class, 'adminModifier'])->name('admin.voyage.modifier');
 Route::get('/admin/voyage/supprimer/{id}',  [VoyageController::class, 'adminSupprimer'])->name('admin.voyage.supprimer');
-

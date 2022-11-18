@@ -49,7 +49,7 @@ class ClientController extends Controller
        $nouveauClient->courriel = $request->input('courriel');
        $nouveauClient->prenom = $request->input('prenom');
        $nouveauClient->nom = $request->input('nom');
-       $nouveauClient->motDePasse = Hash::make($request->input('motDePasse'));
+       $nouveauClient->motDePasse = $request->input('motDePasse');
        $nouveauClient->adresse = $request->input('adresse');
        $nouveauClient->ville = $request->input('ville');
        $nouveauClient->CP = $request->input('codePostal');

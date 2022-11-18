@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $table = "client";
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,7 +22,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
-        'password',
+        'motDePasse',
     ];
 
     /**
@@ -29,9 +31,15 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
+        'motDePasse',
         'remember_token',
     ];
+
+    public function getAuthPassword()
+    {
+        return $this->motDePasse;
+    }
+
 
     /**
      * The attributes that should be cast.
