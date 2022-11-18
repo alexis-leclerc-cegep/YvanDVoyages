@@ -26,7 +26,7 @@ class Controller extends BaseController
         $courriel = $request->input('courriel');
         $motDePasse = $request->input('motDePasse');
 
-        $user = Client::find($courriel);
+        $user = Client::where(['courriel' => $courriel, 'motDePasse' => $motDePasse])->first();
 
         dd ($user);
         /*
