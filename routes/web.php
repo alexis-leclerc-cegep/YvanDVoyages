@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\VoyageController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PanierController;
 
 // Routes d'authentification
 Route::get('/connecter',       [Controller::class, 'connecter'])->name('connecter');
