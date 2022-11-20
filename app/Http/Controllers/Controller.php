@@ -6,6 +6,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Http\Request;
 use App\Models\Client;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 
@@ -28,13 +29,12 @@ class Controller extends BaseController
 
         $user = Client::where(['courriel' => $courriel, 'motDePasse' => $motDePasse])->first();
 
-        dd ($user);
-        /*
+        if($user != null){
+            Session::put('client', $user);
             return redirect()->route('accueil');
         }else{
             return redirect()->route('connecter');
         }
-        */
     }
     public function apropos(){
 
