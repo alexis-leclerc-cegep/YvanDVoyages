@@ -64,7 +64,7 @@
 	<div class="container">
 		<div class="site-info">
 			<h1 style="font-family: 'Herr Von Muellerhoff';color: #ccc;font-weight:300;text-align: center;margin-bottom:0;margin-top:0;line-height:1.4;font-size: 46px;">YvanDesVoyages</h1>
-			<a target="blank" href="">&copy; Copyrigth (tu copies...j'te poursuis...t'es cuits!)</a>
+			<a target="blank" href="">&copy; Copyright (tu copies...j'te poursuis...t'es cuit!)</a>
 		</div>
 	</div>
 	</footer>

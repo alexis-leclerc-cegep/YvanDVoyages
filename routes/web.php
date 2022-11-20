@@ -27,6 +27,13 @@ Route::post('/client/inscrire',             [ClientController::class, 'inscrire'
 Route::post('/client/modifier/{id}',        [ClientController::class, 'modifier'])->name('client.modifier');
 Route::get('/client/desinscrire/{id}',      [ClientController::class, 'desinscrire'])->name('client.desinscrire');
 
+// pour les paniers
+Route::post('/panier/ajouter',         [PanierController::class, 'ajouter'])->name('panier.ajouter');
+Route::get('/panier/afficher/{id}',        [PanierController::class, 'afficher'])->name('panier.afficher');
+Route::post('/panier/payer/{id}',           [PanierController::class, 'payer'])->name('panier.payer');
+Route::get('/panier/vider/{id}',            [PanierController::class, 'vider'])->name('panier.vider');
+Route::get('/panier/supprimer/{id}',        [PanierController::class, 'supprimer'])->name('panier.supprimer');
+
 
 // ROUTES Application administrateur
 // ... pour l'Administration des clients

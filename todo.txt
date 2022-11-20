@@ -1,0 +1,2 @@
+1. Créer panier dans base de données
+2. Créer table de liaison panier voyage

@@ -40,7 +40,7 @@
 									<p>Departement : {{$sonDepartement->codeDepartement}} : {{$sonDepartement->nomDepartement}}</p>
 									<p>Région : {{$saRegion->codeRegion}} : {{$saRegion->nomRegion}} (Auparavent : {{$saRegion->ancienNom}}), {{$saRegion->typeRegion}}</p>
 								</div>
-								<form class="cart" method="POST" action="">	
+								<form class="cart" method="POST" action="/panier/ajouter">	
 									@csrf		
 									<input type="number" name="voyage_id" value="{{ $unVoyage->id }}" style="display: none;">	
 									@if ($errors->has('voyage_id'))
