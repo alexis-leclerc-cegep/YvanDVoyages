@@ -37,7 +37,7 @@ class Controller extends BaseController
         }
     }
     public function apropos(){
-
+        dd(Session('client_id'));
     }
     
 }

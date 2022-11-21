@@ -9,6 +9,10 @@ class PanierController extends Controller
 {
     //
 
+    function chepotest(){
+        $panier = Panier::where('client_id', session('client_id'))->get();
+        return view('panier', ['panier' => $panier]);
+    }
     function ajouter(Request $request)
     {
         $request->validate([
@@ -23,7 +27,6 @@ class PanierController extends Controller
         $panier->client_id = $request->client_id;
         $panier->quantite = $request->quantite;
 
-        dd($panier);
         $panier->save();
 
         return redirect()->route('panier.afficher');
