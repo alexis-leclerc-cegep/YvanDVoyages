@@ -32,5 +32,7 @@ class PanierController extends Controller
         return redirect()->route('panier.afficher');
     }
 
-    function afficher(){}
+    function afficher(){
+        dd(session('client_id'));
+    }
 }

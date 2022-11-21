@@ -30,7 +30,7 @@ Route::get('/client/desinscrire/{id}',      [ClientController::class, 'desinscri
 
 // pour les paniers
 Route::post('/panier/ajouter',         [PanierController::class, 'ajouter'])->name('panier.ajouter');
-Route::get('/panier/afficher/{id}',        [PanierController::class, 'afficher'])->name('panier.afficher');
+Route::get('/panier/afficher',        [PanierController::class, 'afficher'])->name('panier.afficher');
 Route::post('/panier/payer/{id}',           [PanierController::class, 'payer'])->name('panier.payer');
 Route::get('/panier/vider/{id}',            [PanierController::class, 'vider'])->name('panier.vider');
 Route::get('/panier/supprimer/{id}',        [PanierController::class, 'supprimer'])->name('panier.supprimer');
