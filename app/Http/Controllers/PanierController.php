@@ -24,7 +24,7 @@ class PanierController extends Controller
         $panier = new Panier();
         $panier->ip_client = 'TBD';
         $panier->voyage_id = $request->voyage_id;
-        $panier->client_id = $request->client_id;
+        $panier->client_id = session('client_id');
         $panier->quantite = $request->quantite;
 
         $panier->save();

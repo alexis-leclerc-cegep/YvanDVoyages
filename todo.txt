@@ -1,2 +1,11 @@
-1. Créer panier dans base de données
-2. Créer table de liaison panier voyage
+1. montrer que connecté dans template
+
+2. afficher panier
+    a. modifier qte, supprimer, pis toute
+    b. work out paying (really don't know how that will work)
+
+3. section profil du client
+
+4. admin
+
+5. work out the kinks of using ip addr
