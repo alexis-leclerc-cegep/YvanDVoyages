@@ -3,6 +3,7 @@
    Gestion du Panier
 @endsection
 @section('contenu')
+<script src="{{ asset('js/jquery.js') }}"></script>
 <script>
 	var $ = jQuery.noConflict();
 
@@ -10,6 +11,9 @@
 		$.post("./modifier/" + id, {quantite: quantite});
 	};
 </script>
+@php
+	$listePanier = $client->panier;
+@endphp
 <div class="archive post-type-archive post-type-archive-product woocommerce woocommerce-page">
 <div id="page">
 	<div class="container">
@@ -43,7 +47,28 @@
 							<a href="./supprimer/{{$itemPanier->id}}" class="button" style="margin-bottom:10px; margin-top:15px; margin-left:10px">Supprimer</a>
 							</li>
 						@endforeach
-						<a href="./commande/paiement" class="button" style="margin-bottom:10px; margin-top:15px; margin-left:10px">Passer la commande</a>
+						<style>
+							td{
+								margin-left: 40px;
+							}
+						</style>
+						<table style="width:fit-content">
+							<tr>
+								<th>Sous-total</th> 
+								<td>{{ number_format($client->totalPanier(), 2) }}$</td>
+							</tr>
+							<tr>
+								<th>Montant taxes</th>
+								<td>{{ number_format($client->totalPanier() * 0.15, 2) }}$</td>
+							</tr>
+							<tr>
+								<th>Total</th>
+								<td>{{ number_format($client->totalPanier() * 1.15, 2) }}$</td>
+							</tr>
+							<br>
+							<br>
+						</table>
+						<a href="./commande/paiement" class="button" >Passer la commande</a>
 					@endif
 						
 

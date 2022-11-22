@@ -1,10 +1,13 @@
 1. montrer que connecté dans template Done
 
 2. afficher panier done
-    a. modifier qte, supprimer, pis toute
+    a. modifier qte, supprimer, pis toute Done
     b. work out paying (really don't know how that will work)
 
-Pas pouvoir ajouter un voyage qui est deja la
+
+3. Validation ajout panier
+    Pas pouvoir ajouter un voyage qui est deja la
+    
 
 3. section profil du client
 

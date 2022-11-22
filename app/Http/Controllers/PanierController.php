@@ -15,7 +15,7 @@ class PanierController extends Controller
         //$panier = Panier::where('client_id', session('client_id'))->get();
         $client = Client::find(session('client_id'));
         //dd($client->panier[0]->voyage);
-        return view('/client/panier/afficher', ['listePanier' => $client->panier]);
+        return view('/client/panier/afficher', ['client' => $client]);
     }
 
     function supprimer($id){

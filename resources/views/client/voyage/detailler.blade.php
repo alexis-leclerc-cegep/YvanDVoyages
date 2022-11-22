@@ -49,7 +49,7 @@
 									</div>
 									@endif
 									<label>Nombre de participants : </label>	
-									<input type="number" name="quantite" value="1" style="width: 40px"><br><br>	
+									<input type="number" min="1" name="quantite" value="1" style="width: 40px"><br><br>	
 									@if ($errors->has('quantite'))
 									<div class="error">
 										{{ $errors->first('quantite') }}

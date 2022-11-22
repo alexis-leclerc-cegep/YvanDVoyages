@@ -23,6 +23,14 @@ class Client extends Model
         return $this->hasMany(Panier::class);
     }
 
+    public function totalPanier(){
+        $total = 0;
+        foreach($this->panier as $item){
+            $total += $item->quantite * $item->voyage->prix;
+        }
+        return $total;
+    }
+
     //Récupère la province du client
     public function province()
     {
