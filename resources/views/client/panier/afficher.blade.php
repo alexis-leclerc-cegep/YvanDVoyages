@@ -1,4 +1,4 @@
-@extends('template')
+@extends('./client/template')
 @section('titre')
    Gestion du Panier
 @endsection
