@@ -18,7 +18,7 @@ class Client extends Model
     use HasFactory;
 
 
-    public function paniers()
+    public function panier()
     {
         return $this->hasMany(Panier::class);
     }

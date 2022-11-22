@@ -11,7 +11,7 @@
 			<div id="primary" class="content-area column full">
 				<main id="main" class="site-main" role="main">
 				<p class="woocommerce-result-count">
-					 {{ $nombreDeVoyages }} Voyages dans votre panier
+					 {{ $lesVoyagesDuPanier->count() }} Voyages dans votre panier
 				</p>
 				<ul class="products">
 					@if($lesVoyagesDuPanier->count() > 0)
