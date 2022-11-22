@@ -16,4 +16,14 @@ class Panier extends Model
     public $timestamps = false;
     protected $fillable = ['ip_client', 'voyage_id', 'quantite', 'client_id'];
     use HasFactory;
+
+    public function voyage()
+    {
+        return $this->belongsTo(Voyage::class);
+    }
+
+    public function client()
+    {
+        return $this->belongsTo(Client::class);
+    }
 }

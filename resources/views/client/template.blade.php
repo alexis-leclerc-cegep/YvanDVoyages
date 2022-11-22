@@ -55,7 +55,7 @@
         <ul id="menu-menu-1" class="menu">
           <li><a href="{{route('voyage.afficher')}}">Magasiner les voyages</a></li>
           <li><a href="{{route('voyage.apropos')}}">À propos</a></li>
-          <li><a href=""><img src="cart.jpg" alt="Panier" style="width: 28px;"></a></li>
+          <li><a href="{{route('panier.afficher')}}"><img src="/cart.jpg" alt="Panier" style="width: 28px;"></a></li>
         </ul>
       </div>
       </nav>

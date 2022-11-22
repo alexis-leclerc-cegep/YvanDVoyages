@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Panier;
+use Illuminate\Support\Facades\Redirect;
 
 class PanierController extends Controller
 {
     //
 
-    function chepotest(){
+    function afficher(){
         $panier = Panier::where('client_id', session('client_id'))->get();
-        return view('panier', ['panier' => $panier]);
+        dd($panier);
     }
     function ajouter(Request $request)
     {
@@ -29,10 +30,7 @@ class PanierController extends Controller
 
         $panier->save();
 
-        return redirect()->route('panier.afficher');
+        return Redirect::back()->with('message','Voyage ajouté au panier!');
     }
 
-    function afficher(){
-        dd(session('client_id'));
-    }
 }
