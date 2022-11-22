@@ -17,7 +17,7 @@
 					@if($listePanier->count() > 0)
 					    @foreach ($listePanier as $itemPanier) 
 						    <li style="width: 90%; margin-bottom:24px; border:2px black solid;">
-							<a href="./voyage/detailler/{{$itemPanier->voyage->id }}" style="display:flex; flex-direction:row; margin-bottom:10px">
+							<a href="../voyage/detailler/{{$itemPanier->voyage->id }}" style="display:flex; flex-direction:row; margin-bottom:10px">
 								<div>
 									<img class="productimg" src="{{ $itemPanier->voyage->imgLink }}" alt="" style="width: 300px; margin-left:10px; margin-top: 10px">
 								</div>
@@ -30,7 +30,8 @@
 							<form method="post" action="./modifier/{{$itemPanier->id}}" style="display:flex; flex-direction:row; margin-bottom:10px; margin-left:10px;">
 								@csrf
 								<span>Nombre de participants : 
-								<input type="number" name="quantite" value="{{$itemPanier->quantite}}" style="width: 50px; "></span>
+								<input type="number" onchan name="quantite" value="{{$itemPanier->quantite}}" style="width: 50px; "></span>
+								<input type="hidden" name="quantite" value="{{$itemPanier->quantite}}" style="width: 50px; "></span>
 								<input type="submit" value="Modifier" style="margin-left: 10px">
 							</form>
 							<br>
