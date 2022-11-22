@@ -20,14 +20,14 @@ class PanierController extends Controller
 
     function supprimer($id){
         Panier::find($id)->delete();
-        return response('ok', 200);
+        return Redirect::back();
     }
 
     function modifier($id, Request $request) {
         $panier = Panier::find($id);
         $panier->quantite = $request->input('quantite');
         $panier->save();
-        return Redirect::back();
+        return Response('OK', 200);
     }
     function ajouter(Request $request)
     {

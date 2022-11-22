@@ -21,7 +21,6 @@
 						<img class="productimg" src="{{ $unVoyage->imgLink }}" alt="">
 						<h3>{{$unVoyage->nomVoyage}}</h3>
 						<span class="price"><span class="amount">${{ $unVoyage->prix }}</span></span>
-						</a><a href="./panier/ajouter/{{$unVoyage->id}}" class="button">Add to cart</a>
 						</li>
 					@endforeach
 				</ul>

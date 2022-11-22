@@ -35,7 +35,7 @@ Route::get('/panier/afficher',        [PanierController::class, 'afficher'])->na
 Route::post('/panier/payer/{id}',           [PanierController::class, 'payer'])->name('panier.payer');
 Route::get('/panier/vider/{id}',            [PanierController::class, 'vider'])->name('panier.vider');
 Route::get('/panier/supprimer/{id}',        [PanierController::class, 'supprimer'])->name('panier.supprimer');
-Route::post('/panier/modifier/{id}',        [PanierController::class, 'supprimer'])->name('panier.supprimer');
+Route::post('/panier/modifier/{id}',        [PanierController::class, 'modifier'])->name('panier.modifier');
 
 
 // ROUTES Application administrateur
