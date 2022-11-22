@@ -14,8 +14,8 @@ class PanierController extends Controller
     function afficher(){
         //$panier = Panier::where('client_id', session('client_id'))->get();
         $client = Client::find(session('client_id'));
-        dd($client->panier);
-        return view('/client/panier/afficher', ['lesVoyagesDuPanier' => $client->panier]);
+        //dd($client->panier[0]->voyage);
+        return view('/client/panier/afficher', ['listePanier' => $client->panier]);
     }
     function ajouter(Request $request)
     {
