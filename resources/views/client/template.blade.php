@@ -69,7 +69,6 @@
 		</div>
 	</div>
 	</footer>
-	<a href="#top" class="smoothup" title="Back to top"><img style="width: 30px" src="arrow-up-circle.svg"></span></a>
 </div>
 <!-- #page -->
 <script src='{{ asset('js/jquery.js') }}'></script>

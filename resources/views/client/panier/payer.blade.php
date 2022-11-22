@@ -54,31 +54,14 @@
 									<label for="dateExpirationMois"> Date d'expiration </label>
 									<div style="display: flex; flex-direction:row;">
 									<select name="dateExpirationMois" id="dateExpirationMois" class="form-control" placeholder="" style="margin-bottom: 10px; width:40px;" >
-										<option>01</option>
-										<option>02</option>
-										<option>03</option>
-										<option>04</option>
-										<option>05</option>
-										<option>06</option>
-										<option>07</option>
-										<option>08</option>
-										<option>09</option>
-										<option>10</option>
-										<option>11</option>
-										<option>12</option>
+										@for ($i = 1; $i <= 12; $i++)
+											<option value="{{ $i }}">{{ $i }}</option>
+										@endfor
 									</select>
-									/
 									<select name="dateExpirationAnnee" id="dateExpirationAnnee" class="form-control" placeholder="" style="margin-bottom: 10px; width:40px;" >
-										<option>22</option>
-										<option>23</option>
-										<option>24</option>
-										<option>25</option>
-										<option>26</option>
-										<option>27</option>
-										<option>28</option>
-										<option>29</option>
-										<option>30</option>
-										<option>31</option>
+										@for($i = 0; $i < 10; $i++)
+											<option value="{{ $i }}">{{ $i }}</option>
+										@endfor
 									</select>
 									</div>
 									<button type="submit" style="color:black;">Procéder au paiement</button>

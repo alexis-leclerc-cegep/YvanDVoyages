@@ -49,7 +49,7 @@
 						@endforeach
 						<style>
 							td{
-								margin-left: 40px;
+								padding-left: 70px !important;
 							}
 						</style>
 						<table style="width:fit-content">
