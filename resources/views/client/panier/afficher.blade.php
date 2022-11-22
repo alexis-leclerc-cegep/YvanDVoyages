@@ -30,7 +30,7 @@
 							<span class="price" style=" margin-left:10px"><span class="amount">Nombre de participants : {{ $itemPanier->quantite }}</span>
 							<a href="./panier/modifier/Quantite/{{ $itemPanier->id }}/-1" type="button" class="btn btn-success" style="width: 30px;">-</a>
 							<a href="./panier/modifier/Quantite/{{ $itemPanier->id }}/+1" type="button" class="btn btn-success" style="width: 30px;">+</a></span><br>
-							<a href="./panier/supprimer/{{ $itemPanier->id }}" class="button" style="margin-bottom:10px; margin-top:15px; margin-left:10px">Supprimer</a>
+							<a href="{{route("panier.supprimer", ['id', $itemPanier->id])}}" class="button" style="margin-bottom:10px; margin-top:15px; margin-left:10px">Supprimer</a>
 							</li>
 						@endforeach
 						<a href="./commande/paiement" class="button" style="margin-bottom:10px; margin-top:15px; margin-left:10px">Passer la commande</a>

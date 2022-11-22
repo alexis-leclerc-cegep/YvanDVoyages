@@ -17,6 +17,11 @@ class PanierController extends Controller
         //dd($client->panier[0]->voyage);
         return view('/client/panier/afficher', ['listePanier' => $client->panier]);
     }
+
+    function supprimer(Request $request){
+        Panier::find($request->input('id'))->delete();
+        return Redirect::back();
+    }
     function ajouter(Request $request)
     {
         $request->validate([
