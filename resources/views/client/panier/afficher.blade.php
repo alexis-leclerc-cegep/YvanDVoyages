@@ -3,6 +3,8 @@
    Gestion du Panier
 @endsection
 @section('contenu')
+<script src="{{ asset('js/boutonModifierQuantite.js') }}"></script>
+<script src="{{ asset('js/jquery.js') }}"></script>
 <div class="archive post-type-archive post-type-archive-product woocommerce woocommerce-page">
 <div id="page">
 	<div class="container">
@@ -27,13 +29,10 @@
 								</div>
 
 							</a>
-							<form method="post" action="./modifier/{{$itemPanier->id}}" style="display:flex; flex-direction:row; margin-bottom:10px; margin-left:10px;">
-								@csrf
+							<div style="margin-left:10px">
 								<span>Nombre de participants : 
-								<input type="number" onchan name="quantite" value="{{$itemPanier->quantite}}" style="width: 50px; "></span>
-								<input type="hidden" name="quantite" value="{{$itemPanier->quantite}}" style="width: 50px; "></span>
-								<input type="submit" value="Modifier" style="margin-left: 10px">
-							</form>
+								<input type="number" onchange="modifierQuantite(this.value, {{$itemPanier->id}})" name="quantite" value="{{$itemPanier->quantite}}" style="width: 50px; "></span>
+							</div>
 							<br>
 							<!--<a href="./panier/modifier/Quantite/{{ $itemPanier->id }}/-1" type="button" class="btn btn-success" style="width: 30px;">-</a>-->
 							<a href="./supprimer/{{$itemPanier->id}}" class="button" style="margin-bottom:10px; margin-top:15px; margin-left:10px">Supprimer</a>
