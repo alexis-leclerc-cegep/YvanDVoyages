@@ -27,10 +27,10 @@ class Controller extends BaseController
         $courriel = $request->input('courriel');
         $motDePasse = $request->input('motDePasse');
 
-        $user = Client::where(['courriel' => $courriel, 'motDePasse' => $motDePasse])->first();
+        $client = Client::where(['courriel' => $courriel, 'motDePasse' => $motDePasse])->first();
 
-        if($user != null){
-            Session(['client_id' => $user->id]);
+        if($client != null){
+            Session(['client_id' => $client->id]);
             return redirect()->route('voyage.afficher');
         }else{
             return redirect()->route('connecter')->with('message', 'Courriel ou mot de passe invalide.');

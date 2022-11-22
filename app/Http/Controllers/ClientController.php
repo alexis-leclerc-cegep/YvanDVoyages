@@ -28,6 +28,8 @@ class ClientController extends Controller
                                       ->with('toutLesPremiersContacts', $toutLesPremiersContacts);
     }
 
+    public function afficher(){}
+
     //Fonction d'inscription du client au site et d'ajout d'un client de l'administration
     public function inscrire(Request $request){
         // Valdation des données

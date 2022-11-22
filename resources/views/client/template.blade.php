@@ -35,10 +35,12 @@
     </div>  
     @endif  
     <header id="masthead" class="site-header">
-      @if(session()->exists('courriel'))
-        <a style="margin-left:90%" class="nav-link" href="{{route('deconnecter')}}"> Déconnexion </a>
-      @endif
-      @if(!session()->exists('courriel'))
+      @if(session()->exists('client_id'))
+      <p style="margin-left:90%">
+        <a class="nav-link" href="{{route('deconnecter')}}"> Déconnexion </a>
+        <a class="nav-link" href="{{route('client.afficher')}}"> Mon compte </a>
+      </p>
+      @else
       <a style="margin-left:90%" class="nav-link" href="{{route('connecter')}}"> Connexion </a>
       @endif
 
