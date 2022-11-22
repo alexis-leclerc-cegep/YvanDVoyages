@@ -22,6 +22,13 @@ class PanierController extends Controller
         Panier::find($id)->delete();
         return Redirect::back();
     }
+
+    function modifier($id, Request $request) {
+        $panier = Panier::find($id);
+        $panier->quantite = $request->input('quantite');
+        $panier->save();
+        return Redirect::back();
+    }
     function ajouter(Request $request)
     {
         $request->validate([

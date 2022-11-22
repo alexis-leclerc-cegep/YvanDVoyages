@@ -27,12 +27,13 @@
 								</div>
 
 							</a>
-							<form method="post" action="./panier/modifier/{{$itemPanier->id}}" style="display:flex; flex-direction:row; margin-bottom:10px; margin-left:10px;">
+							<form method="post" action="./modifier/{{$itemPanier->id}}" style="display:flex; flex-direction:row; margin-bottom:10px; margin-left:10px;">
 								@csrf
-								<input type="number" name="quantite" value="{{$itemPanier->quantite}}" style="width: 50px; ">
+								<span>Nombre de participants : 
+								<input type="number" name="quantite" value="{{$itemPanier->quantite}}" style="width: 50px; "></span>
 								<input type="submit" value="Modifier" style="margin-left: 10px">
 							</form>
-							<span class="price" style=" margin-left:10px"><span class="amount">Nombre de participants : {{ $itemPanier->quantite }}</span>
+							<br>
 							<!--<a href="./panier/modifier/Quantite/{{ $itemPanier->id }}/-1" type="button" class="btn btn-success" style="width: 30px;">-</a>-->
 							<a href="./supprimer/{{$itemPanier->id}}" class="button" style="margin-bottom:10px; margin-top:15px; margin-left:10px">Supprimer</a>
 							</li>
