@@ -19,7 +19,7 @@
 						    <li style="width: 90%; margin-bottom:24px; border:2px black solid;">
 							<a href="./voyage/detailler/{{$itemPanier->voyage->id }}" style="display:flex; flex-direction:row; margin-bottom:10px">
 								<div>
-									<img class="productimg" src="{{ $itemPanier->voyage->imgLink }}" alt="" style="width: 300px">
+									<img class="productimg" src="{{ $itemPanier->voyage->imgLink }}" alt="" style="width: 300px; margin-left:10px; margin-top: 10px">
 								</div>
 								<div style="margin-left: 25%">
 									<h3>{{$itemPanier->voyage->nomVoyage}}</h3><br>
@@ -27,9 +27,13 @@
 								</div>
 
 							</a>
+							<form method="post" action="./panier/modifier/{{$itemPanier->id}}" style="display:flex; flex-direction:row; margin-bottom:10px; margin-left:10px;">
+								@csrf
+								<input type="number" name="quantite" value="{{$itemPanier->quantite}}" style="width: 50px; ">
+								<input type="submit" value="Modifier" style="margin-left: 10px">
+							</form>
 							<span class="price" style=" margin-left:10px"><span class="amount">Nombre de participants : {{ $itemPanier->quantite }}</span>
-							<a href="./panier/modifier/Quantite/{{ $itemPanier->id }}/-1" type="button" class="btn btn-success" style="width: 30px;">-</a>
-							<a href="./panier/modifier/Quantite/{{ $itemPanier->id }}/+1" type="button" class="btn btn-success" style="width: 30px;">+</a></span><br>
+							<!--<a href="./panier/modifier/Quantite/{{ $itemPanier->id }}/-1" type="button" class="btn btn-success" style="width: 30px;">-</a>-->
 							<a href="./supprimer/{{$itemPanier->id}}" class="button" style="margin-bottom:10px; margin-top:15px; margin-left:10px">Supprimer</a>
 							</li>
 						@endforeach
