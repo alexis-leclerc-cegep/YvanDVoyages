@@ -20,7 +20,7 @@ class PanierController extends Controller
 
     function supprimer($id){
         Panier::find($id)->delete();
-        return Redirect::back();
+        return response('ok', 200);
     }
 
     function modifier($id, Request $request) {

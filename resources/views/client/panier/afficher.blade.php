@@ -3,8 +3,13 @@
    Gestion du Panier
 @endsection
 @section('contenu')
-<script src="{{ asset('js/boutonModifierQuantite.js') }}"></script>
-<script src="{{ asset('js/jquery.js') }}"></script>
+<script>
+	var $ = jQuery.noConflict();
+
+	function modifierQuantite(quantite, id) {
+		$.post("./modifier/" + id, {quantite: quantite});
+	};
+</script>
 <div class="archive post-type-archive post-type-archive-product woocommerce woocommerce-page">
 <div id="page">
 	<div class="container">
