@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Client;
 use App\Models\Panier;
 use Illuminate\Support\Facades\Redirect;
 
@@ -11,8 +12,9 @@ class PanierController extends Controller
     //
 
     function afficher(){
-        $panier = Panier::where('client_id', session('client_id'))->get();
-        dd($panier);
+        //$panier = Panier::where('client_id', session('client_id'))->get();
+        $client = Client::find(session('client_id'));
+        dd($client->paniers);
     }
     function ajouter(Request $request)
     {

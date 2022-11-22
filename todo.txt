@@ -1,4 +1,4 @@
-1. montrer que connecté dans template
+1. montrer que connecté dans template Done
 
 2. afficher panier
     a. modifier qte, supprimer, pis toute

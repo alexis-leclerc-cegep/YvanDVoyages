@@ -17,8 +17,22 @@ class Client extends Model
     public $timestamps = false;  //Utilisation de created_at et updated_at
     use HasFactory;
 
+
+    public function paniers()
+    {
+        return $this->hasMany(Panier::class);
+    }
+
     //Récupère la province du client
+    public function province()
+    {
+        return $this->belongsTo(Province::class);
+    }
 
     //Récupère le premier contact du client
+    public function premierContact()
+    {
+        return $this->belongsTo(PremierContact::class);
+    }
 
 }
