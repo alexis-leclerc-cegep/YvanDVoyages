@@ -12,9 +12,7 @@ class PanierController extends Controller
     //
 
     function afficher(){
-        //$panier = Panier::where('client_id', session('client_id'))->get();
         $client = Client::find(session('client_id'));
-        //dd($client->panier[0]->voyage);
         return view('/client/panier/afficher', ['client' => $client]);
     }
 
@@ -44,8 +42,9 @@ class PanierController extends Controller
         $panier->quantite = $request->quantite;
 
         $panier->save();
-
         return Redirect::back()->with('message','Voyage ajouté au panier!');
     }
+
+    function 
 
 }
