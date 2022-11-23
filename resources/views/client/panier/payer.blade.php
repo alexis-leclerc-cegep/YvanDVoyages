@@ -39,7 +39,7 @@
 									<label>{{ $client->prenom }}</label>
 									<label>{{ $client->nom }}</label><br>
 									<label>{{ $client->adresse }}&nbsp;{{ $client->ville }}</label>
-									<label>{{ $client->province }}</label><br>
+									<label>{{ $client->province->province }}</label><br>
 									<label>{{ $client->CP }}</label><br>
 									<label style="margin-bottom: 20px;">{{ $client->telephone }}</label><br>
 									<strong><label>Montant avant-taxes : {{ number_format($client->totalPanier(), 2) }} $</label><br>
