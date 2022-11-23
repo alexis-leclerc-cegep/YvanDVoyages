@@ -25,14 +25,14 @@ Route::get('voyage/detailler/{id}', [VoyageController::class, 'detailler'])->nam
 // ... pour les clients
 Route::get('/client/creerCompte',           [ClientController::class, 'creerCompte'])->name('client.creerCompte');
 Route::post('/client/inscrire',             [ClientController::class, 'inscrire'])->name('client.inscrire');
-Route::get('/client/afficher',        [ClientController::class, 'afficher'])->name('client.afficher');
+Route::get('/client/afficher',              [ClientController::class, 'afficher'])->name('client.afficher');
 Route::post('/client/modifier/{id}',        [ClientController::class, 'modifier'])->name('client.modifier');
 Route::get('/client/desinscrire/{id}',      [ClientController::class, 'desinscrire'])->name('client.desinscrire');
 
 // pour les paniers
-Route::post('/panier/ajouter',         [PanierController::class, 'ajouter'])->name('panier.ajouter');
-Route::get('/panier/afficher',        [PanierController::class, 'afficher'])->name('panier.afficher');
-Route::get('/panier/paiement/{id}',           [PanierController::class, 'payer'])->name('panier.payer');
+Route::post('/panier/ajouter',              [PanierController::class, 'ajouter'])->name('panier.ajouter');
+Route::get('/panier/afficher',              [PanierController::class, 'afficher'])->name('panier.afficher');
+Route::get('/panier/paiement/',             [PanierController::class, 'payer'])->name('panier.payer');
 Route::get('/panier/vider/{id}',            [PanierController::class, 'vider'])->name('panier.vider');
 Route::get('/panier/supprimer/{id}',        [PanierController::class, 'supprimer'])->name('panier.supprimer');
 Route::post('/panier/modifier/{id}',        [PanierController::class, 'modifier'])->name('panier.modifier');

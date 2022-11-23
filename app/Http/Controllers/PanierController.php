@@ -16,8 +16,9 @@ class PanierController extends Controller
         return view('/client/panier/afficher', ['client' => $client]);
     }
 
-    function payer($id){
-        $client = Client::find($id);
+
+    function payer(){
+        $client = Client::find(session('client_id'));
         return view('/client/panier/payer', ['client' => $client]);
     }
 

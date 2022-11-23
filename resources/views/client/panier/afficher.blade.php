@@ -70,7 +70,7 @@
 							<br>
 							<span id="avertissement" style="display: none" class="danger">Rafraîchir pour avoir le montant de la commande actualisé</span>
 						</table>
-						<a href="./paiement/{{$client->id}}" class="button" >Passer la commande</a>
+						<a href="./paiement" class="button" >Passer la commande</a>
 					@endif
 						
 

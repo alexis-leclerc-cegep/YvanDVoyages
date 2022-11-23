@@ -1,4 +1,4 @@
-@extends('template')
+@extends('./client/template')
 @section('titre')
    Paiement
 @endsection
@@ -42,10 +42,10 @@
 									<label>{{ $client->province }}</label><br>
 									<label>{{ $client->CP }}</label><br>
 									<label style="margin-bottom: 20px;">{{ $client->telephone }}</label><br>
-									<strong><label>Montant avant-taxes : {{ $lePrixAvantTaxes }} $</label><br>
-									<label>TPS : {{ $laTps }} $</label><br>
-									<label>TVQ : {{ $laTvq }} $</label><br>
-									<label>Montant dû : {{ $lePrixAvecTaxes }} $</label></strong>
+									<strong><label>Montant avant-taxes : {{ number_format($client->totalPanier(), 2) }} $</label><br>
+									<label>TPS : {{ number_format($client->totalPanier() * 0.05, 2) }} $</label><br>
+									<label>TVQ : {{ number_format($client->totalPanier() * 0.0975, 2) }} $</label><br>
+									<label>Montant dû : {{ number_format($client->totalPanier() *1.15, 2) }} $</label></strong>
 								</div>
 								<div style="margin-left: 30px;">
 									<label for="titulaire"> Titulaire de la carte </label>
