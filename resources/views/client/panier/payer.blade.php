@@ -12,19 +12,19 @@
 				<main id="main" class="site-main" role="main">
 					<div style="display:flex; flex-direction:row; ">
 						<div>
-							@if($lesVoyagesDuPanier->count() > 0)
-								@foreach ($lesVoyagesDuPanier as $unVoyageDuPanier) 
+							@if($listePanier->count() > 0)
+								@foreach ($listePanier as $itemPanier) 
 									<li style="width: 90%; margin-bottom:24px; border:2px black solid;">
-										<a href="./voyage/detailler/{{$unVoyageDuPanier->unVoyage->id }}" style="display:flex; flex-direction:row; margin-bottom:10px;">
+										<a href="./voyage/detailler/{{$itemPanier->voyage->id }}" style="display:flex; flex-direction:row; margin-bottom:10px;">
 											<div>
-												<img class="productimg" src="{{ $unVoyageDuPanier->unVoyage->imgLink }}" alt="" style="width: 300px">
+												<img class="productimg" src="{{ $itemPanier->voyage->imgLink }}" alt="" style="width: 300px">
 											</div>
 											<div style="margin-left: 25%">
-												<h3>{{$unVoyageDuPanier->unVoyage->nomVoyage}}</h3><br>
-												<span class="price"><span class="amount">${{ $unVoyageDuPanier->unVoyage->prix }}</span></span><br>
+												<h3>{{$itemPanier->voyage->nomVoyage}}</h3><br>
+												<span class="price"><span class="amount">${{ $itemPanier->voyage->prix }}</span></span><br>
 											</div>
 										</a>
-										<span class="price" style=" margin-left:10px"><span class="amount">Nombre de participants : {{ $unVoyageDuPanier->quantite }}</span>
+										<span class="price" style=" margin-left:10px"><span class="amount">Nombre de participants : {{ $itemPanier->quantite }}</span>
 									</li>
 								@endforeach
 							@endif
@@ -33,12 +33,12 @@
 							<form action="?????????????" style="display:flex; flex-direction:row;">
 								@csrf
 								<div>
-									<label>{{ $leClient->prenom }}</label>
-									<label>{{ $leClient->nom }}</label><br>
-									<label>{{ $leClient->adresse }}&nbsp;{{ $leClient->ville }}</label>
-									<label>{{ $leClient->province }}</label><br>
-									<label>{{ $leClient->CP }}</label><br>
-									<label style="margin-bottom: 20px;">{{ $leClient->telephone }}</label><br>
+									<label>{{ $client->prenom }}</label>
+									<label>{{ $client->nom }}</label><br>
+									<label>{{ $client->adresse }}&nbsp;{{ $client->ville }}</label>
+									<label>{{ $client->province }}</label><br>
+									<label>{{ $client->CP }}</label><br>
+									<label style="margin-bottom: 20px;">{{ $client->telephone }}</label><br>
 									<strong><label>Montant avant-taxes : {{ $lePrixAvantTaxes }} $</label><br>
 									<label>TPS : {{ $laTps }} $</label><br>
 									<label>TVQ : {{ $laTvq }} $</label><br>
