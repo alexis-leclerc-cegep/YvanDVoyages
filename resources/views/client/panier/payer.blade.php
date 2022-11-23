@@ -4,6 +4,9 @@
 @endsection
 @section('contenu')
 <div class="archive post-type-archive post-type-archive-product woocommerce woocommerce-page">
+@php
+	$listePanier = $client->panier;
+@endphp
 <div id="page">
 	<div class="container">
 		<!-- #masthead -->

@@ -16,6 +16,11 @@ class PanierController extends Controller
         return view('/client/panier/afficher', ['client' => $client]);
     }
 
+    function payer($id){
+        $client = Client::find($id);
+        return view('/client/panier/payer', ['client' => $client]);
+    }
+
     function supprimer($id){
         Panier::find($id)->delete();
         return Redirect::back();
@@ -45,6 +50,5 @@ class PanierController extends Controller
         return Redirect::back()->with('message','Voyage ajouté au panier!');
     }
 
-    function 
 
 }
