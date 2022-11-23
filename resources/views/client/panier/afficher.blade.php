@@ -8,6 +8,7 @@
 	var $ = jQuery.noConflict();
 
 	function modifierQuantite(quantite, id) {
+		$('#avertissement').show() ;
 		$.post("./modifier/" + id, {quantite: quantite});
 	};
 </script>
@@ -67,6 +68,7 @@
 							</tr>
 							<br>
 							<br>
+							<span id="avertissement" style="display: none" class="danger">Rafraîchir pour avoir le montant de la commande actualisé</span>
 						</table>
 						<a href="./commande/paiement" class="button" >Passer la commande</a>
 					@endif
