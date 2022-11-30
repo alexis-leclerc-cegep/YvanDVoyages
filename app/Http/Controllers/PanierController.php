@@ -22,8 +22,16 @@ class PanierController extends Controller
     }
 
     function processer(Request $request){
+        $request->validate(
+            [
+                'titulaire' => 'required',
+                'numeroCarte' => 'required',
+                'ccv' => 'required',
+                'dateExpirationAnnee' => 'required',
+                'dateExpirationMois' => 'required'
+            ]
+        );
         $client = Client::find(session('client_id'));
-        dd($client);
         $client->vente =  $client->panier;
         $client->vente->save();
         return Redirect::to('/voyage', ['message' => 'Paiement effectué avec succès']);

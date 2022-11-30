@@ -34,7 +34,7 @@
 							@endif
 						</div>
 						<div>
-							<form action="/panier/processer" style="display:flex; flex-direction:row;">
+							<form action="/panier/processer" method="POST" style="display:flex; flex-direction:row;">
 								@csrf
 								<div>
 									<label>{{ $client->prenom }}</label>

@@ -23,6 +23,11 @@ class Client extends Model
         return $this->hasMany(Panier::class);
     }
 
+    public function vente()
+    {
+        return $this->hasMany(Vente::class);
+    }
+
     public function totalPanier(){
         $total = 0;
         foreach($this->panier as $item){
