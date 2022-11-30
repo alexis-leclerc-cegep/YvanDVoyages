@@ -16,10 +16,17 @@ class PanierController extends Controller
         return view('/client/panier/afficher', ['client' => $client]);
     }
 
-
     function payer(){
         $client = Client::find(session('client_id'));
         return view('/client/panier/payer', ['client' => $client]);
+    }
+
+    function processer(Request $request){
+        $client = Client::find(session('client_id'));
+        dd($client);
+        $client->vente =  $client->panier;
+        $client->vente->save();
+        return Redirect::to('/voyage', ['message' => 'Paiement effectué avec succès']);
     }
 
     function supprimer($id){
@@ -33,6 +40,7 @@ class PanierController extends Controller
         $panier->save();
         return Response('OK', 200);
     }
+
     function ajouter(Request $request)
     {
         $request->validate([

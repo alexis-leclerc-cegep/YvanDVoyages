@@ -5,6 +5,7 @@
 @section('contenu')
 <div class="archive post-type-archive post-type-archive-product woocommerce woocommerce-page">
 @php
+	use Carbon\Carbon;
 	$listePanier = $client->panier;
 @endphp
 <div id="page">
@@ -33,7 +34,7 @@
 							@endif
 						</div>
 						<div>
-							<form action="?????????????" style="display:flex; flex-direction:row;">
+							<form action="/panier/processer" style="display:flex; flex-direction:row;">
 								@csrf
 								<div>
 									<label>{{ $client->prenom }}</label>
@@ -62,7 +63,7 @@
 										@endfor
 									</select>
 									<select name="dateExpirationAnnee" id="dateExpirationAnnee" class="form-control" placeholder="" style="margin-bottom: 10px; width:40px;" >
-										@for($i = 22; $i <= 33; $i++)
+										@for($i = now()->year - 2000; $i <= (now()->year - 2000)  + 10; $i++)
 											<option value="{{ $i }}">{{ $i }}</option>
 										@endfor
 									</select>
