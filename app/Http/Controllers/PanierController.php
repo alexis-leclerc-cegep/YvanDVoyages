@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+
 use App\Models\Client;
 use App\Models\Panier;
-use Illuminate\Support\Facades\Redirect;
+use App\Models\Vente;
 
 class PanierController extends Controller
 {
@@ -32,9 +34,15 @@ class PanierController extends Controller
             ]
         );
         $client = Client::find(session('client_id'));
-        $client->vente =  $client->panier;
-        $client->vente->save();
-        return Redirect::to('/voyage', ['message' => 'Paiement effectué avec succès']);
+        $vente = new Vente();
+        //$vente->dateVente =  now();
+        //$vente->voyage_id = $client->panier[0]->voyage_id;
+        $vente->voyage_id = $client->panier[0]->voyage_id;
+        $vente->quantiteVoyageurs = $client->panier[0]->quantite;
+        $vente->client_id = session('client_id');
+        $vente->dateVente = now();
+        $vente->save();
+        return redirect()->route('voyage.afficher', ['message' => 'Paiement effectué avec succès']);
     }
 
     function supprimer($id){

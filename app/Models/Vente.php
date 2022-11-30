@@ -16,5 +16,4 @@ class Vente extends Model
     protected $fillable = ['dateVente', 'client_id', 'voyage_id', 'quantiteVoyageurs']; //Champs modifiables
     public $timestamps = false;  //Utilisation de created_at et updated_at
     use HasFactory;
-
 }
