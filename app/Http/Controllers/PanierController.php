@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Redirect;
 use App\Models\Client;
 use App\Models\Panier;
 use App\Models\Vente;
+use App\Models\Paiement;
 
 class PanierController extends Controller
 {
