@@ -9,11 +9,12 @@ use App\Models\Client;
 class ClientsTable extends DataTableComponent
 {
     protected $model = Client::class;
+    public ?string $defaultSortColumn = 'prenom';
 
     public function configure(): void
     {
         $this->setPrimaryKey('id');
-        $this->setDebugEnabled();
+        //$this->setDebugEnabled();
     }
 
     public function columns(): array
@@ -22,27 +23,26 @@ class ClientsTable extends DataTableComponent
             Column::make("Id", "id")
                 ->sortable(),
             Column::make("Prenom", "prenom")
+                ->searchable()
                 ->sortable(),
             Column::make("Nom", "nom")
-                ->sortable(),
-            Column::make("MotDePasse", "motDePasse")
+                ->searchable()
                 ->sortable(),
             Column::make("Adresse", "adresse")
+                ->searchable()
                 ->sortable(),
             Column::make("Ville", "ville")
+                ->searchable()
                 ->sortable(),
             Column::make("CP", "CP")
+                ->searchable()
                 ->sortable(),
             Column::make("Telephone", "telephone")
                 ->sortable(),
             Column::make("Courriel", "courriel")
                 ->sortable(),
             Column::make("Genre", "genre")
-                ->sortable(),
-            Column::make("Province id", "province_id")
-                ->sortable(),
-            Column::make("PremierContact id", "premierContact_id")
-                ->sortable(),
+                ->sortable()
         ];
     }
 }
