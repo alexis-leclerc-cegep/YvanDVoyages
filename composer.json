@@ -12,8 +12,6 @@
         "laravel/sanctum": "^3.0",
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
-        "okipa/laravel-table": "^5.2",
-        "protonemedia/laravel-splade": "^1.0",
         "rappasoft/laravel-livewire-tables": "^2.8"
     },
     "require-dev": {
