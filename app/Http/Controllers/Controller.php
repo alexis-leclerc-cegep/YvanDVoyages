@@ -21,7 +21,7 @@ class Controller extends BaseController
     public function authentifier(Request $request){
         $request->validate([
             'courriel' => ['required', 'string', 'min:5', 'max:35' ] ,   
-            'motDePasse' => ['required', 'string',  'min:5', 'max:35']
+            'motDePasse' => ['required', 'string',  'min:2', 'max:35']
         ]);
 
         $courriel = $request->input('courriel');
