@@ -37,7 +37,7 @@ class ClientController extends Controller
            'courriel' => ['required', 'string', 'min:5', 'max:35' ],    
            'prenom' => ['required', 'string',  'min:3', 'max:10'],
            'nom' => ['required', 'string',  'min:3', 'max:10'],      
-           'motDePasse' => ['required', 'string',  'min:5', 'max:35'],
+           'motDePasse' => ['required', 'string',  'min:2', 'max:35'],
            'adresse' => ['required', 'string',  'min:5', 'max:28'],      
            'ville' => ['required', 'string',  'min:2', 'max:19'], 
            'codePostal' => ['required', 'string',  'min:7', 'max:7'], 
@@ -73,7 +73,7 @@ class ClientController extends Controller
     public function adminLister (Request $request){
         if($request->session()->get('admin')==1){
             
-            return view('admin/client/lister')->with('tousLesClients', $tousLesClients);
+            return view('admin/client/lister');
         }
         else{
             return redirect()->route('voyage.afficher')->with('message', 'Accès refusé.');
