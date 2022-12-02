@@ -47,16 +47,9 @@ class VoyageController extends Controller
 
 
     //Affichage de la liste des voyages de l'administration
-    public function adminVoyages(Request $request){
+    public function adminLister(Request $request){
         if($request->session()->get('admin')==1){
-            $tousLesVoyages = Voyage::all();
-            $nombreVoyages = $tousLesVoyages->count();
-            $tousLesDepartements = Departement::all();
-            $toutesLesCategories = Categorie::all();
-            return view('administrationVoyages')->with("tousLesVoyages", $tousLesVoyages)
-                                                ->with("nombreVoyages", $nombreVoyages)
-                                                ->with('tousLesDepartements', $tousLesDepartements)
-                                                ->with('toutesLesCategories', $toutesLesCategories);
+            return(view('/admin/voyage/lister'));
         }
         else{
             return redirect()->route('vitrine.voyages')->with('message', 'Accès refusé.');

@@ -13,13 +13,15 @@
       <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Oswald:400,500,700%7CRoboto:400,500,700%7CHerr+Von+Muellerhoff:400,500,700%7CQuattrocento+Sans:400,500,700' type='text/css' media='all'/>
       <link rel='stylesheet' href='{{ asset('css/easy-responsive-shortcodes.css') }}' type='text/css' media='all'/>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-      <script src="//unpkg.com/alpinejs" defer></script>
+        <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+        <livewire:styles />
       <style>
         [x-cloak] { display: none !important; }
       </style>
       <title>@yield('titre')</title>
     </head>
     <body>
+    <livewire:scripts />
     @if (session('message'))  
     <div class="alert alert-info">  
         <strong>  
@@ -55,9 +57,9 @@
         <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
       <div class="menu-menu-1-container">
         <ul id="menu-menu-1" class="menu">
-          <li><a href="">Gestion des Clients</a></li>
+          <li><a href="/admin/client/lister">Gestion des Clients</a></li>
           <li><a href="">Gestion des Ventes/Paiements</a></li>
-          <li><a href="">Gestion des Voyages</a></li>
+          <li><a href="/admin/voyage/lister">Gestion des Voyages</a></li>
         </ul>
       </div>
       </nav>

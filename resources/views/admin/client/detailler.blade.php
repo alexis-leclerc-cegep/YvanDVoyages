@@ -82,11 +82,11 @@
         <!-- Afficher les premiers contacts de la table premiercontact -->
                             <select name="premierContact" id="premierContact" class="form-control" placeholder="">
                                 @foreach($toutLesPremiersContacts as $premierContact)
-                                @if($premierContact->id == $client->premierContact->id)
-                                    <option value="{{ $premierContact->id }}" selected>{{ $premierContact->premierContact }}</option>
-                                @else
-                                    <option value="{{ $premierContact->id }}">{{ $premierContact->premierContact }}</option>
-                                @endif
+                                    @if($premierContact->id == $client->premierContact->id)
+                                        <option value="{{ $premierContact->id }}" selected>{{ $premierContact->premierContact }}</option>
+                                    @else
+                                        <option value="{{ $premierContact->id }}">{{ $premierContact->premierContact }}</option>
+                                    @endif
                                 @endforeach
                             </select>
 

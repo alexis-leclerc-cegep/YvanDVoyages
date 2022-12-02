@@ -16,7 +16,7 @@ class Departement extends Model
     use HasFactory;
 
     //Récupère la région du département
-    public function saRegion()
+    public function region()
     {
         return $this->belongsTo('App\Models\Region', 'region_id');
     }

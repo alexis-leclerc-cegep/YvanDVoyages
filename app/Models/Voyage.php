@@ -19,13 +19,13 @@ class Voyage extends Model
     use HasFactory;
 
     //Récupère la catégorie du voyage
-    public function saCategorie()
+    public function categorie()
     {
         return $this->belongsTo('App\Models\Categorie', 'categorie_id');
     }
 
     //Récupère le département du voyage
-    public function sonDepartement()
+    public function departement()
     {
         return $this->belongsTo('App\Models\Departement', 'departement_id');
     }
