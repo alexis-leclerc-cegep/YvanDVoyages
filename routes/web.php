@@ -44,7 +44,7 @@ Route::post('/panier/modifier/{id}',        [PanierController::class, 'modifier'
 Route::get('/admin/client/lister',          [ClientController::class, 'adminLister'])->name('admin.client.lister');
 Route::get('/admin/client/detailler/{id}',  [ClientController::class, 'adminDetailler'])->name('admin.client.detailler');
 Route::get('/admin/client/ajouter',         [ClientController::class, 'adminAjouter'])->name('admin.client.ajouter');
-Route::post('/admin/client/modifier/{id}',  [ClientController::class, 'adminModifier'])->name('admin.client.modifier');
+Route::get('/admin/client/modifier/{id}',  [ClientController::class, 'adminModifier'])->name('admin.client.modifier');
 Route::get('/admin/client/supprimer/{id}',  [ClientController::class, 'adminSupprimer'])->name('admin.client.supprimer');
 
 // Routes pour l'Administration des voyages
