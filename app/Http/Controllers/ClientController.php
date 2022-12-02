@@ -84,8 +84,7 @@ class ClientController extends Controller
     public function adminDetailler(Request $request, $id){
         if($request->session()->get('admin')==1){
 
-
-            
+            dd($request);
         }
         else{
             return redirect()->route('voyage.afficher')->with('message', 'Accès refusé.');
