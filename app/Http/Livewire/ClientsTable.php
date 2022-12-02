@@ -38,17 +38,23 @@ class ClientsTable extends DataTableComponent
                 ->searchable()
                 ->sortable(),
             Column::make("Telephone", "telephone")
+                ->searchable()
                 ->sortable(),
             Column::make("Courriel", "courriel")
+                ->searchable()
                 ->sortable(),
             Column::make("Genre", "genre")
                 ->sortable(),
+            Column::make("Province", "province.province")
+                ->sortable(),
+            //Column::make("PremierContact", "premiercontact.premiercontact")
+             //   ->sortable(),
             Column::make('Actions')
                 ->label(
                     function($row){
                         //echo "ok";
                         $delete = '<button class="danger font-bold p-2 rounded m-1" onclick="location.href = \'/admin/client/supprimer/' . $row->id . '\'">Trash</button>';
-                        $edit = '<button class="primary font-bold p-2 rounded m-1" onclick="location.href=\'/admin/clients/detailler/' . $row->id . '\'">Edit</button>';
+                        $edit = '<button class="primary font-bold p-2 rounded m-1" onclick="location.href=\'/admin/client/detailler/' . $row->id . '\'">Edit</button>';
                         return $delete.$edit;
                         //return redirect('/admin/clients/detailler/'.$row->id);
                     }

@@ -6,7 +6,7 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 m-auto">
-        <form method="post" action="/client/inscrire">
+        <form method="post" action="/admin/client/modifier">
             @csrf
                 <div class="card shadow" style="margin-bottom: 15px">
                     <div class="car-header bg-success pt-2">
@@ -24,31 +24,32 @@
                             @endif
 
 
+                            <input type="hidden" name="id" value="{{$client->id}}">
                         <div class="form-group">
                             <label for="courriel"> Courriel </label>
                             {!! $errors->first('courriel', '<small class="text-danger">:message</small>') !!}
-                            <input type="text" name="courriel" id="email" class="form-control" placeholder="" value="{{ old('courriel') }}"/>
+                            <input type="text" name="courriel" id="email" class="form-control" value="{{$client->courriel}}" >
                             <label for="prenom"> Prénom </label>
                             {!! $errors->first('prenom', '<small class="text-danger">:message</small>') !!}
-                            <input type="text" name="prenom" id="prenom" class="form-control" placeholder="" value="{{ old('prenom') }}"/>
+                            <input type="text" name="prenom" id="prenom" class="form-control" value="{{$client->prenom}}" >
                             <label for="nom"> Nom </label>
                             {!! $errors->first('nom', '<small class="text-danger">:message</small>') !!}
-                            <input type="text" name="nom" id="nom" class="form-control" placeholder="" value="{{ old('nom') }}"/>
+                            <input type="text" name="nom" id="nom" class="form-control" value="{{$client->nom}}" >
                             <label for="adresse"> Adresse </label>
                             {!! $errors->first('adresse', '<small class="text-danger">:message</small>') !!}
-                            <input type="text" name="adresse" id="adresse" class="form-control" placeholder="" value="{{ old('adresse') }}"/>
+                            <input type="text" name="adresse" id="adresse" class="form-control" value="{{$client->adresse}}" >
                             <label for="ville"> Ville </label>
                             {!! $errors->first('ville', '<small class="text-danger">:message</small>') !!}
-                            <input type="text" name="ville" id="ville" class="form-control" placeholder="" value="{{ old('ville') }}"/>
+                            <input type="text" name="ville" id="ville" class="form-control" value="{{$client->ville}}" >
                             <label for="codePostal"> Code postal </label>
                             {!! $errors->first('codePostal', '<small class="text-danger">:message</small>') !!}
-                            <input type="text" name="codePostal" id="codePostal" class="form-control" placeholder="" value="{{ old('codePostal') }}"/>
+                            <input type="text" name="codePostal" id="codePostal" class="form-control" value="{{$client->CP}}" >
                             <label for="telephone"> Téléphone </label>
                             {!! $errors->first('telephone', '<small class="text-danger">:message</small>') !!}
-                            <input type="text" name="telephone" id="telephone" class="form-control" placeholder="{{$client->telephone}}" value="{{ old('telephone') }}"/>
+                            <input type="text" name="telephone" id="telephone" class="form-control" value="{{$client->telephone}}" >
                             <label for="genre"> Genre </label>
                             {!! $errors->first('genre', '<small class="text-danger">:message</small>') !!}
-                            <select name="genre" id="genre" class="form-control" placeholder="{{$client->genre}}" value="{{ old('genre') }}">
+                            <select name="genre" id="genre" class="form-control" value="{{$client->genre}}" >
                                 <option>M</option>
                                 <option>F</option>
                                 <option>A</option>
@@ -60,9 +61,13 @@
 
 
         <!-- Afficher les provinces de la table province -->
-                            <select name="province" id="province" class="form-control" placeholder="" value="{{ old('province') }}">
+                            <select name="province" id="province" class="form-control" placeholder="" >
                                 @foreach($toutLesProvinces as $province)
+                                @if($province->id == $client->province->id)
+                                    <option value="{{ $province->id }}" selected>{{ $province->province }}</option>
+                                @else
                                     <option value="{{ $province->id }}">{{ $province->province }}</option>
+                                @endif
                                 @endforeach
                             </select>
 
@@ -75,9 +80,13 @@
 
 
         <!-- Afficher les premiers contacts de la table premiercontact -->
-                            <select name="premierContact" id="premierContact" class="form-control" placeholder="{{$client->premierContact" value="{{ old('premierContact')}}">
+                            <select name="premierContact" id="premierContact" class="form-control" placeholder="">
                                 @foreach($toutLesPremiersContacts as $premierContact)
+                                @if($premierContact->id == $client->premierContact->id)
+                                    <option value="{{ $premierContact->id }}" selected>{{ $premierContact->premierContact }}</option>
+                                @else
                                     <option value="{{ $premierContact->id }}">{{ $premierContact->premierContact }}</option>
+                                @endif
                                 @endforeach
                             </select>
 
@@ -88,7 +97,7 @@
                     </div>
 
                     <div class="card-footer d-inline-block">
-                        <button type="submit" class="btn btn-success"> S'enregistrer </button>
+                        <button type="submit" class="btn btn-success"> Modifier </button>
                     </div>
                     @csrf
                 </div>

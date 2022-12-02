@@ -83,8 +83,9 @@ class ClientController extends Controller
     //Fonction d'affichage des détails de l'administration
     public function adminDetailler(Request $request, $id){
         if($request->session()->get('admin')==1){
+            $client = Client::find($id);
+            return view('admin/client/detailler')->with(['client' => $client, 'toutLesProvinces' => Province::all(), 'toutLesPremiersContacts' => PremierContact::all()]);
 
-            dd($request);
         }
         else{
             return redirect()->route('voyage.afficher')->with('message', 'Accès refusé.');
@@ -120,6 +121,7 @@ class ClientController extends Controller
             $client->province_id = $request->input('province');
             $client->premierContact_id = $request->input('premierContact');
             $client->save();
+            return back()->with('message', 'Le client a été modifié avec succès.');
         }
         else{
             return redirect()->route('voyage.afficher')->with('message', 'Accès refusé.');

@@ -45,7 +45,7 @@ class Client extends Model
     //Récupère le premier contact du client
     public function premierContact()
     {
-        return $this->belongsTo(PremierContact::class);
+        return $this->belongsTo(PremierContact::class, 'premierContact_id');
     }
 
 }
