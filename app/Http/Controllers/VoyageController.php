@@ -32,17 +32,17 @@ class VoyageController extends Controller
     //Affichage des détails d'un voyage
     public function detailler($id){
 
-        $unVoyage = Voyage::find($id);
-        $saCategorie = $unVoyage->saCategorie;
-        $sonDepartement = $unVoyage->sonDepartement;
+        $voyage = Voyage::find($id);
+        $categorie = $voyage->categorie;
+        $departement = $voyage->departement;
 
-        $unDepartement = Departement::find($sonDepartement->id);
-        $saRegion = $unDepartement->saRegion;
+        $unDepartement = Departement::find($departement->id);
+        $region = $unDepartement->region;
 
-        return view('/client/voyage/detailler')->with('unVoyage', $unVoyage)
-                                                ->with('saCategorie', $saCategorie)
-                                                ->with('sonDepartement', $sonDepartement)
-                                                ->with('saRegion', $saRegion);
+        return view('/client/voyage/detailler')->with('voyage', $voyage)
+                                                ->with('categorie', $categorie)
+                                                ->with('departement', $departement)
+                                                ->with('region', $region);
     }
 
 

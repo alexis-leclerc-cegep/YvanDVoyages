@@ -12,7 +12,7 @@ use App\Http\Controllers\PanierController;
 
 // Routes d'authentification
 Route::get('/connecter',       [Controller::class, 'connecter'])->name('connecter');
-Route::post('/deconnecter',     [Controller::class, 'deconnecter'])->name('deconnecter');
+Route::get('/deconnecter',     [Controller::class, 'deconnecter'])->name('deconnecter');
 Route::post('/authentifier',    [Controller::class, 'authentifier'])->name('authentifier');
 
 // ROUTES Application e-commerce

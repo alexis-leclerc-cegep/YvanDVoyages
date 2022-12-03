@@ -18,6 +18,11 @@ class Controller extends BaseController
         return view('connecter'); 
     }
 
+    public function deconnecter(){
+        session()->flush();
+        return redirect()->route('voyage.afficher')->with('message', 'Vous êtes déconnecté.');
+    }
+
     public function authentifier(Request $request){
         $request->validate([
             'courriel' => ['required', 'string', 'min:5', 'max:35' ] ,   
@@ -30,12 +35,14 @@ class Controller extends BaseController
         $client = Client::where(['courriel' => $courriel, 'motDePasse' => $motDePasse])->first();
 
         if($client != null){
-            if($client->admin = 1)
+            if($client->admin == 1)
             {
                 Session(['admin' => true]);
-                return redirect()->route('admin.afficher');
+                Session(['client_id' => $client->id]);
+                return redirect()->route('admin.client.lister');
             }
             else{
+                Session(['admin' => false]);
                 Session(['client_id' => $client->id]);
                 return redirect()->route('voyage.afficher');
             }

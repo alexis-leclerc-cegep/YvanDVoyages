@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Province;
 use App\Models\Client;
+use App\Models\Vente;
 use App\Models\PremierContact;
 use Illuminate\Support\Facades\Hash;
 

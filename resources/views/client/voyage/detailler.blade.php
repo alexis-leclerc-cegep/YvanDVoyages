@@ -13,36 +13,36 @@
 				<main id="main" class="site-main" role="main">
 				<div id="container">
 					<div id="content" role="main">
-						<nav class="woocommerce-breadcrumb" itemprop="breadcrumb"><a href="{{route('voyage.afficher')}}">Voyages</a> / <a href="{{ $unVoyage->id }}">{{$unVoyage->nomVoyage}}</a></nav>
+						<nav class="woocommerce-breadcrumb" itemprop="breadcrumb"><a href="{{route('voyage.afficher')}}">Voyages</a> / <a href="{{ $voyage->id }}">{{$voyage->nomVoyage}}</a></nav>
 						<div itemscope itemtype="http://schema.org/Product" class="product">
 							<div class="images">
 								<a href="" itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto">								
-								<img src="{{$unVoyage->imgLink}}" alt=""></a>
+								<img src="{{$voyage->imgLink}}" alt=""></a>
 							</div>
 							<div class="summary entry-summary">
-								<h1 itemprop="name" class="product_title entry-title">{{$unVoyage->nomVoyage}}</h1>
+								<h1 itemprop="name" class="product_title entry-title">{{$voyage->nomVoyage}}</h1>
 								<div class="woocommerce-product-rating" itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
 									<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
 									<a href="#reviews" class="woocommerce-review-link" rel="nofollow">(<span itemprop="reviewCount" class="count">2</span> customer reviews)</a>
 								</div>
 								<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
 									<p class="price">
-										<span class="amount">${{$unVoyage->prix}}</span>
+										<span class="amount">${{$voyage->prix}}</span>
 									</p>
 									<meta itemprop="price" content="35"/>
 									<meta itemprop="priceCurrency" content="USD"/>
 									<link itemprop="availability" href="http://schema.org/InStock"/>
 								</div>
 								<div itemprop="description">
-									<p>Date de début : {{$unVoyage->dateDebut}}</p>
-									<p>Durée : {{$unVoyage->duree}} jours</p>
-									<p>Emplacement : {{$unVoyage->ville}}</p>
-									<p>Departement : {{$sonDepartement->codeDepartement}} : {{$sonDepartement->nomDepartement}}</p>
-									<p>Région : {{$saRegion->codeRegion}} : {{$saRegion->nomRegion}} (Auparavent : {{$saRegion->ancienNom}}), {{$saRegion->typeRegion}}</p>
+									<p>Date de début : {{$voyage->dateDebut}}</p>
+									<p>Durée : {{$voyage->duree}} jours</p>
+									<p>Emplacement : {{$voyage->ville}}</p>
+									<p>Departement : {{$departement->codeDepartement}} : {{$departement->nomDepartement}}</p>
+									<p>Région : {{$region->codeRegion}} : {{$region->nomRegion}} (Auparavent : {{$region->ancienNom}}), {{$region->typeRegion}}</p>
 								</div>
 								<form class="cart" method="POST" action="/panier/ajouter">	
 									@csrf		
-									<input type="number" name="voyage_id" value="{{ $unVoyage->id }}" style="display: none;">	
+									<input type="number" name="voyage_id" value="{{ $voyage->id }}" style="display: none;">	
 									@if ($errors->has('voyage_id'))
 									<div class="error">
 										{{ $errors->first('voyage_id') }}
@@ -58,7 +58,7 @@
 									<button type="submit" class="single_add_to_cart_button button alt">Ajouter au panier</button>
 								</form>
 								<div class="product_meta">
-									<span class="posted_in">Categorie:  {{$saCategorie->categorie}}
+									<span class="posted_in">Categorie:  {{$categorie->categorie}}
 									</span>
 								</div>
 							</div>
@@ -67,13 +67,13 @@
 									<div class="panel entry-content wc-tab" id="tab-description">
 									<h2>Description</h2>
 									<p>
-										{{$saCategorie->description}}
+										{{$categorie->description}}
 									</p>
 								</div>
 								<div class="panel entry-content wc-tab" id="tab-reviews">
 									<div id="reviews">
 										<div id="comments">
-											<h2>2 Commentaires pour {{$unVoyage->nomVoyage}}</h2>
+											<h2>2 Commentaires pour {{$voyage->nomVoyage}}</h2>
 											<ol class="commentlist">
 												<li itemprop="review" itemscope itemtype="http://schema.org/Review" class="comment">
 												<div id="comment-3" class="comment_container">

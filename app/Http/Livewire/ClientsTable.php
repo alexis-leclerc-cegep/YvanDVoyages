@@ -21,8 +21,8 @@ class ClientsTable extends DataTableComponent
     {
         return [
             Column::make("Id", "id")
-                ->sortable(),
-            Column::make("Prenom", "prenom")
+                ->hideIf(True), //Cacher la colonne afin d'être capable de l'obtenir en bas sur les boutons sans la montrer a lutilisateur
+            Column::make("Prénom", "prenom")
                 ->searchable()
                 ->sortable(),
             Column::make("Nom", "nom")
@@ -37,7 +37,7 @@ class ClientsTable extends DataTableComponent
             Column::make("CP", "CP")
                 ->searchable()
                 ->sortable(),
-            Column::make("Telephone", "telephone")
+            Column::make("Téléphone", "telephone")
                 ->searchable()
                 ->sortable(),
             Column::make("Courriel", "courriel")
