@@ -19,8 +19,7 @@ class VoyagesTable extends DataTableComponent
     {
         return [
             Column::make("Id", "id")
-                ->searchable()
-                ->sortable(),
+                ->hideIf(true),
             Column::make("NomVoyage", "nomVoyage")
                 ->searchable()
                 ->sortable(),
@@ -44,6 +43,16 @@ class VoyagesTable extends DataTableComponent
                 ->sortable(),
             Column::make("Catégorie", "categorie.categorie")
                 ->sortable(),
+            Column::make('Actions')
+                ->label(
+                    function($row){
+                        //echo "ok";
+                        $delete = '<button class="font-bold p-2 rounded m-1" onclick="location.href = \'/admin/voyage/supprimer/' . $row->id . '\'">Supprimer</button>';
+                        $edit = '<button class="font-bold p-2 rounded m-1" onclick="location.href=\'/admin/voyage/detailler/' . $row->id . '\'">Modifier</button>';
+                        return $delete.$edit;
+                        //return redirect('/admin/clients/detailler/'.$row->id);
+                    }
+                )->html()
         ];
     }
 }

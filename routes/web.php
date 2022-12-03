@@ -38,6 +38,8 @@ Route::get('/panier/vider/{id}',            [PanierController::class, 'vider'])-
 Route::get('/panier/supprimer/{id}',        [PanierController::class, 'supprimer'])->name('panier.supprimer');
 Route::post('/panier/modifier/{id}',        [PanierController::class, 'modifier'])->name('panier.modifier');
 
+Route::get('/admin/vente/lister',           [VenteController::class, 'lister'])->name('vente.lister');
+
 
 // ROUTES Application administrateur
 // ... pour l'Administration des clients

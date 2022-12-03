@@ -1,9 +1,10 @@
+
 @extends('./admin/template')
 @section('titre')
-    Liste des voyages
+Liste Ventes
 @endsection
 @section('contenu')
 <div style="margin: 2%">
-    <livewire:voyages-table theme="bootstrap-4"/>
+    <livewire:ventes-table theme="bootstrap-5"/>
 </div>
 @endsection

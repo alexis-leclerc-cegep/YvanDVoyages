@@ -53,8 +53,8 @@ class ClientsTable extends DataTableComponent
                 ->label(
                     function($row){
                         //echo "ok";
-                        $delete = '<button class="font-bold p-2 rounded m-1" onclick="location.href = \'/admin/client/supprimer/' . $row->id . '\'">Trash</button>';
-                        $edit = '<button class="font-bold p-2 rounded m-1" onclick="location.href=\'/admin/client/detailler/' . $row->id . '\'">Edit</button>';
+                        $delete = '<button class="font-bold p-2 rounded m-1" onclick="location.href = \'/admin/client/supprimer/' . $row->id . '\'">Supprimer</button>';
+                        $edit = '<button class="font-bold p-2 rounded m-1" onclick="location.href=\'/admin/client/detailler/' . $row->id . '\'">Modifier</button>';
                         return $delete.$edit;
                         //return redirect('/admin/clients/detailler/'.$row->id);
                     }

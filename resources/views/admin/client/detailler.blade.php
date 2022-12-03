@@ -1,6 +1,6 @@
-@extends('./client/template')
+@extends('./admin/template')
 @section('titre')
-   YvanDesVoyages-Inscription
+   Modification
 @endsection
 @section('contenu')
 <div class="container mt-3">
@@ -10,7 +10,7 @@
             @csrf
                 <div class="card shadow" style="margin-bottom: 15px">
                     <div class="car-header bg-success pt-2">
-                        <div class="card-title font-weight-bold text-white text-center"> Création d'un compte </div>
+                        <div class="card-title font-weight-bold text-white text-center"> Modification d'un compte </div>
                     </div>
 
                     <div class="card-body">
