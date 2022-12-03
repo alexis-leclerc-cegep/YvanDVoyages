@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\VoyageController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\PanierController;
+use App\Http\Controllers\VenteController;
 
 // Routes d'authentification
 Route::get('/connecter',       [Controller::class, 'connecter'])->name('connecter');
@@ -38,6 +39,8 @@ Route::get('/panier/vider/{id}',            [PanierController::class, 'vider'])-
 Route::get('/panier/supprimer/{id}',        [PanierController::class, 'supprimer'])->name('panier.supprimer');
 Route::post('/panier/modifier/{id}',        [PanierController::class, 'modifier'])->name('panier.modifier');
 
+
+// pour les ventes
 Route::get('/admin/vente/lister',           [VenteController::class, 'lister'])->name('vente.lister');
 
 

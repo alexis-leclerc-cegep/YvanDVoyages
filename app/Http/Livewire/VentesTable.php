@@ -20,9 +20,9 @@ class VentesTable extends DataTableComponent
         return [
             Column::make("Id", "id")
                 ->sortable(),
-            Column::make("DateVente", "dateVente")
+            Column::make("Nom Client", "client.prenom"."client.nom")
                 ->sortable(),
-            Column::make("Client id", "client_id")
+            Column::make("DateVente", "dateVente")
                 ->sortable(),
             Column::make("Voyage id", "voyage_id")
                 ->sortable(),
