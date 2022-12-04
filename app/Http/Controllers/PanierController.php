@@ -43,6 +43,10 @@ class PanierController extends Controller
         $vente->client_id = session('client_id');
         $vente->dateVente = now();
         $vente->save();
+        $paiement = new Paiement();
+        $paiement->montant = $client->totalPanier;
+        $paiement->datePaiemenet = now();
+        $paiement->associate($vente);
         return redirect()->route('voyage.afficher', ['message' => 'Paiement effectué avec succès']);
     }
 

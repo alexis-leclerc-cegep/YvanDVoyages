@@ -17,11 +17,11 @@ class Client extends Model
     public $timestamps = false;  //Utilisation de created_at et updated_at
     use HasFactory;
 
-
     public function panier()
     {
         return $this->hasMany(Panier::class);
     }
+
 
     public function vente()
     {
