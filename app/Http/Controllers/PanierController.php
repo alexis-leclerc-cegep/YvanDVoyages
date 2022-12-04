@@ -44,10 +44,11 @@ class PanierController extends Controller
         $vente->dateVente = now();
         $vente->save();
         $paiement = new Paiement();
-        $paiement->montant = $client->totalPanier;
-        $paiement->datePaiemenet = now();
-        $paiement->associate($vente);
-        return redirect()->route('voyage.afficher', ['message' => 'Paiement effectué avec succès']);
+        $paiement->montantPaiement = $client->totalPanier();
+        $paiement->datePaiement = now();
+        $paiement->vente_id = $vente->id;
+        $paiement->save();
+        return redirect()->route('voyage.afficher')->with('message', 'Votre paiement a été accepté.');
     }
 
     function supprimer($id){

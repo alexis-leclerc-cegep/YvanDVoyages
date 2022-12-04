@@ -28,7 +28,7 @@
                         <div class="form-group">
                             <label for="courriel"> Courriel </label>
                             {!! $errors->first('courriel', '<small class="text-danger">:message</small>') !!}
-                            <input type="text" name="courriel" id="email" class="form-control" value="{{$client->courriel}}" >
+                            <input type="text" name="courriel" id="email" class="form-control" value="{{$client->courriel}}" disabled>
                             <label for="prenom"> Prénom </label>
                             {!! $errors->first('prenom', '<small class="text-danger">:message</small>') !!}
                             <input type="text" name="prenom" id="prenom" class="form-control" value="{{$client->prenom}}" >

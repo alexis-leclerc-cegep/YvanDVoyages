@@ -58,7 +58,7 @@
       <div class="menu-menu-1-container">
         <ul id="menu-menu-1" class="menu">
           <li><a href="/admin/client/lister">Gestion des Clients</a></li>
-          <li><a href="">Gestion des Ventes/Paiements</a></li>
+          <li><a href="/admin/vente/lister">Gestion des Ventes/Paiements</a></li>
           <li><a href="/admin/voyage/lister">Gestion des Voyages</a></li>
         </ul>
       </div>
