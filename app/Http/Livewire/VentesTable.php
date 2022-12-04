@@ -5,7 +5,10 @@ namespace App\Http\Livewire;
 use Rappasoft\LaravelLivewireTables\DataTableComponent;
 use Rappasoft\LaravelLivewireTables\Views\Filters\DateFilter;
 use Rappasoft\LaravelLivewireTables\Views\Column;
+use Rappasoft\LaravelLivewireTables\Views\Filters\MultiSelectFilter;
+
 use App\Models\Vente;
+use App\Models\Voyage;
 
 class VentesTable extends DataTableComponent
 {
@@ -19,7 +22,13 @@ class VentesTable extends DataTableComponent
     public function filters(): array 
     {
         return [
-            DateFilter::make('DateVente')
+            DateFilter::make('DateVente', 'dateVente'),
+            MultiSelectFilter::make('Voyage')
+                ->options(
+                    Voyage::all()
+                        ->pluck('nomVoyage', 'id')
+                        ->toArray()
+                ),
         ];
 
     }
