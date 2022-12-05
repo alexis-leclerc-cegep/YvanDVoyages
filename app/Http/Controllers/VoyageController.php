@@ -12,6 +12,7 @@ use App\Models\Voyage;
 use App\Models\Vente;
 use App\Models\Departement;
 use App\Models\Categorie;
+use Illuminate\Validation\Rule;
 
 class VoyageController extends Controller
 {
@@ -86,33 +87,28 @@ class VoyageController extends Controller
         if($request->session()->get('admin')==1){
             // Valdation des données
             $request->validate([
-                'nomVoyage' => ['required', 'string', 'min:3', 'max:41' ], 
+                'nomVoyage' => ['required', Rule::unique('voyage', 'nomVoyage'), 'string', 'min:3', 'max:41' ], //Rule::unique pour check s'il existe deja
                 'dateDebut' => ['required', 'date'],
                 'duree' => ['required', 'integer', 'min:1'],
                 'ville' => ['required', 'string', 'min:3', 'max:24'],
                 'prix' => ['required', 'numeric', 'min:1'],
                 'departement' => ['required', 'integer'],
                 'categorie' => ['required', 'integer'],
+                'imgLink' => ['string', 'min:3', 'max:2000'],
             ]);
 
-            $voyage = Voyage::where('nomVoyage', $request->input('nomVoyage'))->count();
-            if($voyage == 0){
-                $nouveauVoyage = new Voyage;
-                $nouveauVoyage->nomVoyage = $request->input('nomVoyage');
-                $nouveauVoyage->dateDebut = $request->input('dateDebut');
-                $nouveauVoyage->duree = $request->input('duree');
-                $nouveauVoyage->ville = $request->input('ville');
-                $nouveauVoyage->prix = $request->input('prix');
-                $nouveauVoyage->departement_id = $request->input('departement');
-                $nouveauVoyage->categorie_id = $request->input('categorie');
-                $nouveauVoyage->save();
+            $nouveauVoyage = new Voyage;
+            $nouveauVoyage->nomVoyage = $request->input('nomVoyage');
+            $nouveauVoyage->dateDebut = $request->input('dateDebut');
+            $nouveauVoyage->duree = $request->input('duree');
+            $nouveauVoyage->ville = $request->input('ville');
+            $nouveauVoyage->prix = $request->input('prix');
+            $nouveauVoyage->departement_id = $request->input('departement');
+            $nouveauVoyage->categorie_id = $request->input('categorie');
+            $nouveauVoyage->imgLink = $request->input('imgLink');
+            $nouveauVoyage->save();
 
-                return redirect()->route('admin.voyage.lister')->with('message', 'Voyage ajouté.');
-            }
-            else{
-                //Ajouter message à la page courante
-                return redirect()->route('admin.voyage.creer')->with('message', 'Voyage déjà existant.');
-            }
+            return redirect()->route('admin.voyage.lister')->with('message', 'Voyage ajouté.');
         }
         else{
             return redirect()->route('voyage')->with('message', 'Accès refusé.');
@@ -133,7 +129,6 @@ class VoyageController extends Controller
                 'categorie' => ['required', 'integer'],
                 'id' => ['required', 'integer'],
             ]);
-
             $voyage = Voyage::find($request->input('id'));
             $voyage->dateDebut = $request->input('dateDebut');
             $voyage->duree = $request->input('duree');
