@@ -44,13 +44,13 @@
                                 <label for="departement"> Sélectionnez le département </label>
                                 {!! $errors->first('departement', '<small class="text-danger">:message</small>') !!}
                                 <select name="departement" id="departement" class="form-control">
-                                    @foreach($lesDepartements as $unDepartement)
+                                    @foreach($listeDepartements as $unDepartement)
                                         <option value="{{ $unDepartement->id }}">{{ $unDepartement->nomDepartement }}</option>
                                     @endforeach
                                 </select>
                                 <label for="categorie"> Sélectionnez la catégorie </label>
                                 <select name="categorie" id="categorie" class="form-control">
-                                    @foreach($lesCategories as $uneCategorie)
+                                    @foreach($listeCategories as $uneCategorie)
                                         <option value="{{ $uneCategorie->id }}">{{ $uneCategorie->categorie }}</option>
                                     @endforeach
                                 </select>

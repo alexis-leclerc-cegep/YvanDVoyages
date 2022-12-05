@@ -52,19 +52,19 @@ class VoyageController extends Controller
             return(view('/admin/voyage/lister'));
         }
         else{
-            return redirect()->route('vitrine.voyages')->with('message', 'Accès refusé.');
+            return redirect()->route('voyage')->with('message', 'Accès refusé.');
         }
     }
 
 
     //Affichage des détails d'un voyage de l'administration
-    public function adminDetailsVoyage(Request $request, $id){
+    public function adminDetails(Request $request, $id){
         if($request->session()->get('admin')==1){
             $voyage = Voyage::find($id);
             return view('administrationDetailsVoyage')->with('voyage', $voyage);
         }
         else{
-            return redirect()->route('vitrine.voyages')->with('message', 'Accès refusé.');
+            return redirect()->route('voyage')->with('message', 'Accès refusé.');
         }
     }
 
@@ -77,12 +77,12 @@ class VoyageController extends Controller
                                                 ->with('listeDepartements', $listeDepartements);
         }
         else{
-            return redirect()->route('vitrine.voyages')->with('message', 'Accès refusé.');
+            return redirect()->route('voyage')->with('message', 'Accès refusé.');
         }
     }
 
     //Fonction d'ajout d'un voyage de l'administration
-    public function adminAjouterVoyage(Request $request){
+    public function adminAjouter(Request $request){
         if($request->session()->get('admin')==1){
             // Valdation des données
             $request->validate([
@@ -107,14 +107,15 @@ class VoyageController extends Controller
                 $nouveauVoyage->categorie_id = $request->input('categorie');
                 $nouveauVoyage->save();
 
-                return redirect()->route('voyages.admin')->with('message', 'Voyage ajouté.');
+                return redirect()->route('admin.voyage.lister')->with('message', 'Voyage ajouté.');
             }
             else{
-                return redirect()->route('voyages.admin')->with('message', 'Voyage possédant ce nom existant.');
+                //Ajouter message à la page courante
+                return redirect()->route('admin.voyage.creer')->with('message', 'Voyage déjà existant.');
             }
         }
         else{
-            return redirect()->route('vitrine.voyages')->with('message', 'Accès refusé.');
+            return redirect()->route('voyage')->with('message', 'Accès refusé.');
         }
     }
 
@@ -141,16 +142,16 @@ class VoyageController extends Controller
             $voyage->departement_id = $request->input('departement');
             $voyage->categorie_id = $request->input('categorie');
             $voyage->save();
-            return redirect()->route('voyages.admin')->with('message', 'Voyage modifié.');
+            return redirect()->route('admin.voyage.creer')->with('message', 'Voyage modifié.');
         }
         else{
-            return redirect()->route('vitrine.voyages')->with('message', 'Accès refusé.');
+            return redirect()->route('voyage')->with('message', 'Accès refusé.');
         }
     }
 
     
     //Fonction de suppression d'un voyage de l'administration
-    public function adminSupprimerVoyage(Request $request, $id)
+    public function adminSupprimer(Request $request, $id)
     {
         if($request->session()->get('admin')==1){
             $ventes = Vente::where('voyage_id', $id)->count();
@@ -164,7 +165,7 @@ class VoyageController extends Controller
             }
         }
         else{
-            return redirect()->route('vitrine.voyages')->with('message', 'Accès refusé.');
+            return redirect()->route('voyage')->with('message', 'Accès refusé.');
         }
 
     }
