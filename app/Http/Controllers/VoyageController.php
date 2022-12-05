@@ -69,6 +69,18 @@ class VoyageController extends Controller
     }
 
 
+    public function adminCreer(Request $request){
+        if($request->session()->get('admin')==1){
+            $listeCategories = Categorie::all();
+            $listeDepartements = Departement::all();
+            return view('/admin/voyage/creer')->with('listeCategories', $listeCategories)
+                                                ->with('listeDepartements', $listeDepartements);
+        }
+        else{
+            return redirect()->route('vitrine.voyages')->with('message', 'Accès refusé.');
+        }
+    }
+
     //Fonction d'ajout d'un voyage de l'administration
     public function adminAjouterVoyage(Request $request){
         if($request->session()->get('admin')==1){

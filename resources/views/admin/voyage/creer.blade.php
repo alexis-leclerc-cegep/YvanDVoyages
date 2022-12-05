@@ -1,0 +1,68 @@
+@extends('/admin/template')
+@section('titre')
+    Ajouter un voyage
+@endsection
+@section('contenu')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Ajouter un voyage</h1>
+                <form action="/admin/voyage/ajouter" method="post">
+                    @csrf
+                    <div class="card shadow" style="margin-bottom: 15px">
+                        <div class="car-header bg-success pt-2">
+                            <div class="card-title font-weight-bold text-white text-center"> Ajouter un voyage </div>
+                        </div>
+                        <div class="card-body">
+                            @if(Session::has('success'))
+                                <div class="alert alert-success">
+                                    {{ Session::get('success') }}
+                                    @php
+                                        Session::forget('success');
+                                    @endphp
+                                </div>
+                            @endif
+                            <div class="form-group">
+                                <label for="titre"> Entrez le nom du voyage </label>
+                                {!! $errors->first('nom', '<small class="text-danger">:message</small>') !!}
+                                <input type="text" name="nomVoyage" id="nomVoyage" class="form-control" placeholder="" value="{{old('titre')}}"/>
+                                <label for="dateDebut"> Entrez la date de début du voyage </label>
+                                {!! $errors->first('dateDebut', '<small class="text-danger">:message</small>') !!}
+                                <input type="date" name="dateDebut" id="dateDebut" class="form-control" placeholder="" value="{{old('dateDebut')}}"/>
+                                <label for="duree"> Entrez la durée du voyage (Jours) </label>
+                                {!! $errors->first('duree', '<small class="text-danger">:message</small>') !!}
+                                <input type="number" name="duree" id="duree" class="form-control" placeholder="" value="{{old('duree')}}"/>
+                                <label for="ville"> Entrez la ville de départ </label>
+                                {!! $errors->first('ville', '<small class="text-danger">:message</small>') !!}
+                                <input type="text" name="ville" id="ville" class="form-control" placeholder="" value="{{old('ville')}}"/>
+                                <label for="prix"> Entrez le prix du voyage </label>
+                                {!! $errors->first('prix', '<small class="text-danger">:message</small>') !!}
+                                <input type="text" name="prix" id="prix" class="form-control" placeholder="" value="{{old('prix')}}"/>
+                                <label for="imgLink"> Entrez le lien de l'image </label>
+                                {!! $errors->first('imgLink', '<small class="text-danger">:message</small>') !!}
+                                <input type="text" name="imgLink" id="imgLink" class="form-control" placeholder="" value="{{old('imgLink')}}"/>
+                                <label for="departement"> Sélectionnez le département </label>
+                                {!! $errors->first('departement', '<small class="text-danger">:message</small>') !!}
+                                <select name="departement" id="departement" class="form-control">
+                                    @foreach($lesDepartements as $unDepartement)
+                                        <option value="{{ $unDepartement->id }}">{{ $unDepartement->nomDepartement }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="categorie"> Sélectionnez la catégorie </label>
+                                <select name="categorie" id="categorie" class="form-control">
+                                    @foreach($lesCategories as $uneCategorie)
+                                        <option value="{{ $uneCategorie->id }}">{{ $uneCategorie->categorie }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-footer d-inline-block">
+                            <button type="submit" class="btn btn-success"> Ajouter un voyage </button>
+                        </div>
+                        @csrf
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection
