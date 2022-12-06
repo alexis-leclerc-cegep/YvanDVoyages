@@ -26,4 +26,8 @@ class Vente extends Model
     public function client(){
         return $this->belongsTo(Client::class);
     }
+
+    public function paiement(){
+        return $this->hasOne(Paiement::class);
+    }
 }
