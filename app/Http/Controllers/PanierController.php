@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\MessageBag;
 
 use App\Models\Client;
 use App\Models\Panier;
@@ -48,6 +49,8 @@ class PanierController extends Controller
         $paiement->datePaiement = now();
         $paiement->vente_id = $vente->id;
         $paiement->save();
+        $panier = Panier::where('client_id', session('client_id'))->get();
+        $panier->each->delete();
         return redirect()->route('voyage.afficher')->with('message', 'Votre paiement a été accepté.');
     }
 
@@ -67,18 +70,30 @@ class PanierController extends Controller
     {
         $request->validate([
             'voyage_id' => 'required',
-            'client_id' => '',
             'quantite' => 'required',
         ]);
 
-        $panier = new Panier();
-        $panier->ip_client = 'TBD';
-        $panier->voyage_id = $request->voyage_id;
-        $panier->client_id = session('client_id');
-        $panier->quantite = $request->quantite;
+        if(Client::find(session('client_id'))->panier->count() != 0)
+        {
+            $errors = new MessageBag();
 
-        $panier->save();
-        return Redirect::back()->with('message','Voyage ajouté au panier!');
+            // add your error messages:
+            $errors->add('erreur', 'Désolé, vous ne pouvez pas ajouter plus d\'un voyage au panier');
+            return Redirect::back()->withErrors($errors);
+
+        }
+        else
+        {
+            $panier = new Panier();
+            $panier->ip_client = 'TBD';
+            $panier->voyage_id = $request->voyage_id;
+            $panier->client_id = session('client_id');
+            $panier->quantite = $request->quantite;
+
+            $panier->save();
+            return Redirect::back()->with('message','Voyage ajouté au panier!');
+
+        }
     }
 
 

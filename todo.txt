@@ -1,16 +1,13 @@
-1. montrer que connecté dans template Done
-
-2. afficher panier done
-    a. modifier qte, supprimer, pis toute Done
-    b. work out paying (really don't know how that will work)
-
-
-3. Validation ajout panier
-    Pas pouvoir ajouter un voyage qui est deja la
+validation pas pouvoir ajouter un voyage quand on en a plus qu'un dans le panier Done baby!
     
 
-3. section profil du client
+profil du client
+    modifier son profil
+    historique voyage (commencé)
+
+si ajoute au panier pas login, s'assurer qu'il est connecté
 
 4. admin
-
-5. work out the kinks of using ip addr
+    ajouter client
+    modifier voyage
+    supprimer voyage
