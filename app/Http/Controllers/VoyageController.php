@@ -116,6 +116,7 @@ class VoyageController extends Controller
     }
 
 
+    /*
     //Fonction de modification d'un voyage de l'administration
     public function adminModifierVoyage(Request $request){
         if($request->session()->get('admin')==1){
@@ -143,6 +144,7 @@ class VoyageController extends Controller
             return redirect()->route('voyage')->with('message', 'Accès refusé.');
         }
     }
+    */
 
     
     //Fonction de suppression d'un voyage de l'administration

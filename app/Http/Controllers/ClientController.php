@@ -61,6 +61,11 @@ class ClientController extends Controller
        return redirect()->route('client.afficher')->with('message', 'Votre profil a été modifié avec succès!');
     }
 
+    public function historique(){
+        $client = Client::find(session('client_id'));
+        return view('client/panier/historique', ['client' => $client]);
+    }
+
     //Fonction d'inscription du client au site et d'ajout d'un client de l'administration
     public function inscrire(Request $request){
         // Valdation des données

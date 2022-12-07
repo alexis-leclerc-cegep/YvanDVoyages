@@ -23,6 +23,7 @@ class Client extends Model
     }
 
 
+
     public function vente()
     {
         return $this->hasMany(Vente::class);

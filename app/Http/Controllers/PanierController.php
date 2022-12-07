@@ -72,6 +72,14 @@ class PanierController extends Controller
             'voyage_id' => 'required',
             'quantite' => 'required',
         ]);
+        if (session('client_id') == null)
+        {
+            $errors = new MessageBag();
+
+            // add your error messages:
+            $errors->add('erreur', 'Désolé, vous devez être connecté pour ajouter un voyage au panier');
+            return Redirect::back()->withErrors($errors);
+        }
 
         if(Client::find(session('client_id'))->panier->count() != 0)
         {

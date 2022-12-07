@@ -1,12 +1,12 @@
-validation pas pouvoir ajouter un voyage quand on en a plus qu'un dans le panier Done baby!
     
 
 profil du client
     historique voyage (commencé, juste faire le controlleur, tuner la vue)
 
-si ajoute au panier pas login, s'assurer qu'il est connecté
 
 4. admin
     ajouter client
     modifier voyage
     supprimer voyage
+
+mettre erreur en fr
