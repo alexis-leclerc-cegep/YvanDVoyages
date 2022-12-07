@@ -1,12 +1,3 @@
-    
-
-profil du client
-    historique voyage (commencé, juste faire le controlleur, tuner la vue)
-
-
-4. admin
-    ajouter client
-    modifier voyage
-    supprimer voyage
+ajouter client
 
 mettre erreur en fr
