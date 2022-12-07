@@ -27,7 +27,8 @@ Route::get('voyage/detailler/{id}', [VoyageController::class, 'detailler'])->nam
 Route::get('/client/creerCompte',           [ClientController::class, 'creerCompte'])->name('client.creerCompte');
 Route::post('/client/inscrire',             [ClientController::class, 'inscrire'])->name('client.inscrire');
 Route::get('/client/afficher',              [ClientController::class, 'afficher'])->name('client.afficher');
-Route::post('/client/modifier/{id}',        [ClientController::class, 'modifier'])->name('client.modifier');
+Route::get('/client/historique',            [ClientController::class, 'historique'])->name('client.historique');
+Route::post('/client/modifier',        [ClientController::class, 'modifier'])->name('client.modifier');
 Route::get('/client/desinscrire/{id}',      [ClientController::class, 'desinscrire'])->name('client.desinscrire');
 
 // pour les paniers

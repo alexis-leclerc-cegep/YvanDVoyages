@@ -31,7 +31,34 @@ class ClientController extends Controller
 
     public function afficher(){
         $client = Client::find(session('client_id'));
-        return view('/client/afficher', ['client' => $client, 'toutLesProvinces' => Province::all(), 'toutLesPremiersContacts' => PremierContact::all()]);
+        return view('client/profil/afficher', ['client' => $client, 'toutLesProvinces' => Province::all(), 'toutLesPremiersContacts' => PremierContact::all()]);
+    }
+
+    public function modifier(Request $request){
+        $client = Client::find(session('client_id'));
+        $request->validate([
+           'prenom' => ['required', 'string',  'min:3', 'max:10'],
+           'nom' => ['required', 'string',  'min:3', 'max:10'],      
+           'adresse' => ['required', 'string',  'min:5', 'max:28'],      
+           'ville' => ['required', 'string',  'min:2', 'max:19'], 
+           'codePostal' => ['required', 'string',  'min:7', 'max:7'], 
+           'telephone' => ['required', 'string',  'min:10', 'max:14'], 
+           'genre' => ['required', 'string',  'min:1', 'max:1'], 
+           'province' => ['required', 'integer'], 
+           'premierContact' => ['required', 'integer']
+       ]);
+       $client->prenom = $request->input('prenom');
+       $client->nom = $request->input('nom');
+       $client->adresse = $request->input('adresse');
+       $client->ville = $request->input('ville');
+       $client->CP = $request->input('codePostal');
+       $client->telephone = $request->input('telephone');
+       $client->genre = $request->input('genre');
+       $client->province_id = $request->input('province');
+       $client->premierContact_id = $request->input('premierContact');
+       $client->save();
+
+       return redirect()->route('client.afficher')->with('message', 'Votre profil a été modifié avec succès!');
     }
 
     //Fonction d'inscription du client au site et d'ajout d'un client de l'administration

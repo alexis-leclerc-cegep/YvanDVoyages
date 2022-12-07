@@ -1,4 +1,4 @@
-@extends('./admin/template')
+@extends('./client/template')
 @section('titre')
    Modification
 @endsection
@@ -6,7 +6,7 @@
 <div class="container mt-3">
     <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 m-auto">
-        <form method="post" action="/admin/client/modifier">
+        <form method="post" action="/client/modifier">
             @csrf
                 <div class="card shadow" style="margin-bottom: 15px">
                     <div class="car-header bg-success pt-2">
@@ -24,7 +24,6 @@
                             @endif
 
 
-                            <input type="hidden" name="id" value="{{$client->id}}">
                         <div class="form-group">
                             <label for="courriel"> Courriel </label>
                             {!! $errors->first('courriel', '<small class="text-danger">:message</small>') !!}
