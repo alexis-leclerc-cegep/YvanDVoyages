@@ -44,9 +44,8 @@
       <a style="margin-left:90%" class="nav-link" href="{{route('connecter')}}"> Connexion </a>
       @endif
 
-      <div class="site-branding">
-        <h1 class="site-title"><a href="/voyage" rel="home">YvanDesVoyages</a></h1>
-        <h2 class="site-description">Le meilleur site de vente de voyages</h2>
+      <div class="site-branding" style="" >
+        <h1 class="site-title" style="display:flex; justify-content: center; width: 100%;"><a href="/voyage" rel="home">YvanDesVoyages</a></h1>
       </div>
       <nav id="site-navigation" class="main-navigation">
         <button class="menu-toggle">Menu</button>

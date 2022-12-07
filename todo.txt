@@ -2,7 +2,6 @@ validation pas pouvoir ajouter un voyage quand on en a plus qu'un dans le panier
     
 
 profil du client
-    modifier son profil 
     historique voyage (commencé, juste faire le controlleur, tuner la vue)
 
 si ajoute au panier pas login, s'assurer qu'il est connecté
