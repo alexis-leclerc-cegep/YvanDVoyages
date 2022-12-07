@@ -29,7 +29,10 @@ class ClientController extends Controller
                                       ->with('toutLesPremiersContacts', $toutLesPremiersContacts);
     }
 
-    public function afficher(){}
+    public function afficher(){
+        $client = Client::find(session('client_id'));
+        return view('/client/afficher', ['client' => $client, 'toutLesProvinces' => Province::all(), 'toutLesPremiersContacts' => PremierContact::all()]);
+    }
 
     //Fonction d'inscription du client au site et d'ajout d'un client de l'administration
     public function inscrire(Request $request){

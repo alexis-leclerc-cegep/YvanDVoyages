@@ -38,6 +38,7 @@
       <p style="float: right;  white-space: nowrap">
         <a style="display: inline-block" class="nav-link" href="{{route('deconnecter')}}"> Déconnexion </a>
         <a style="display: inline-block" class="nav-link" href="{{route('client.afficher')}}"> Mon compte </a>
+        <a style="display: inline-block" class="nav-link" href="{{route('client.historique')}}"> Historique commandes </a>
       </p>
       @else
       <a style="margin-left:90%" class="nav-link" href="{{route('connecter')}}"> Connexion </a>
