@@ -59,10 +59,12 @@ class VoyageController extends Controller
 
 
     //Affichage des détails d'un voyage de l'administration
-    public function adminDetails(Request $request, $id){
+    public function adminDetailler(Request $request, $id){
         if($request->session()->get('admin')==1){
             $voyage = Voyage::find($id);
-            return view('administrationDetailsVoyage')->with('voyage', $voyage);
+            $listeDepartements = Departement::all();
+            $listeCategories = Categorie::all();
+            return view('admin/voyage/detailler')->with(['voyage'=> $voyage, 'listeDepartements' => $listeDepartements, 'listeCategories' => $listeCategories]);
         }
         else{
             return redirect()->route('voyage')->with('message', 'Accès refusé.');
@@ -116,9 +118,8 @@ class VoyageController extends Controller
     }
 
 
-    /*
     //Fonction de modification d'un voyage de l'administration
-    public function adminModifierVoyage(Request $request){
+    public function adminModifier(Request $request, $id){
         if($request->session()->get('admin')==1){
             // Valdation des données
             $request->validate([
@@ -128,9 +129,8 @@ class VoyageController extends Controller
                 'prix' => ['required', 'numeric', 'min:1'],
                 'departement' => ['required', 'integer'],
                 'categorie' => ['required', 'integer'],
-                'id' => ['required', 'integer'],
             ]);
-            $voyage = Voyage::find($request->input('id'));
+            $voyage = Voyage::find($id);
             $voyage->dateDebut = $request->input('dateDebut');
             $voyage->duree = $request->input('duree');
             $voyage->ville = $request->input('ville');
@@ -138,13 +138,12 @@ class VoyageController extends Controller
             $voyage->departement_id = $request->input('departement');
             $voyage->categorie_id = $request->input('categorie');
             $voyage->save();
-            return redirect()->route('admin.voyage.creer')->with('message', 'Voyage modifié.');
+            return redirect()->route('admin.voyage.lister')->with('message', 'Voyage modifié.');
         }
         else{
             return redirect()->route('voyage')->with('message', 'Accès refusé.');
         }
     }
-    */
 
     
     //Fonction de suppression d'un voyage de l'administration

@@ -42,14 +42,9 @@
     </div>  
     @endif  
     <header id="masthead" class="site-header">
-      @if(session()->exists('courriel'))
-        <a style="margin-left:90%" class="nav-link" href="{{ url('deconnecter') }}"> Déconnexion </a>
-      @endif
-      @if(!session()->exists('courriel'))
-      <a style="margin-left:90%" class="nav-link" href="{{ url('connecter') }}"> Connexion </a>
-      @endif
+      <a style="margin-left:90%" class="nav-link" href="{{ url('deconnecter') }}"> Déconnexion </a>
       <div class="site-branding">
-        <h1 class="site-title"><a href="index.html" rel="home">YvanDesVoyages</a></h1>
+        <h1 class="site-title" style="display:flex; justify-content: center; width: 100%;">YvanDesVoyages</h1>
         <h2 class="site-description">Administration du site</h2>
       </div>
       <nav id="site-navigation" class="main-navigation">

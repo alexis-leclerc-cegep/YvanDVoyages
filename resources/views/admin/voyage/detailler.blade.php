@@ -6,8 +6,8 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Ajouter un voyage</h1>
-                <form action="/admin/voyage/ajouter" method="post">
+                <h1>Modifier un voyage</h1>
+                <form action="/admin/voyage/modifier/{{$voyage->id}}" method="post">
                     @csrf
                     <div class="card shadow" style="margin-bottom: 15px">
                         <div class="car-header bg-success pt-2">
@@ -25,7 +25,7 @@
                             <div class="form-group">
                                 <label for="titre">Nom du voyage </label>
                                 {!! $errors->first('nom', '<small class="text-danger">:message</small>') !!}
-                                <input type="text" name="nomVoyage" id="nomVoyage" class="form-control" placeholder="" value="{{$voyage->titre}}"/>
+                                <input type="text" name="nomVoyage" id="nomVoyage" class="form-control" placeholder="" value="{{$voyage->nomVoyage}}" disabled/>
                                 <label for="dateDebut">Date de début du voyage </label>
                                 {!! $errors->first('dateDebut', '<small class="text-danger">:message</small>') !!}
                                 <input type="date" name="dateDebut" id="dateDebut" class="form-control" placeholder="" value="{{$voyage->dateDebut}}"/>
